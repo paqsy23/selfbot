@@ -16,7 +16,7 @@ cctv={
     "point":{},
     "sidermem":{}
 }
-
+        
 while True:
     try:
         ops=poll.singleTrace(count=50)
