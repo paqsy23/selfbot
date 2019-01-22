@@ -46,6 +46,8 @@ class LineClient(LineApi, LineModels):
         bb = "Total Mention User「{}」\n\n  [ Mention ]\n1. ".format(str(len(nama)))
         strt = int(0)
         akh = int(0)
+		no = 1
+		num = 2
         nm = nama
         myid = self._client.getProfile().mid
         if myid in nm:    
@@ -56,13 +58,15 @@ class LineClient(LineApi, LineModels):
           strt = strt + 7
           akh = akh + 1
           bb += "@nrik \n"
-		  if akh <= len(nm)
-			bb += "%i. " % (akh+1)
+		  if no <= len(nm)
+		    no = no + 1
+			bb += "%i. " % (num)
+			num = num + 1
 		  else:
 			try:
-				bb += "\n┗━━[ {} ]".format(str(self._client.getGroup(to).name))
+				no += "\n┗━━[ {} ]".format(str(self._client.getGroup(to).name))
 			except:
-				bb += "\n┗━━[ Success ]"
+				no += "\n┗━━[ Success ]"
         aa = (aa[:int(len(aa)-1)])
         text = bb
         try:
