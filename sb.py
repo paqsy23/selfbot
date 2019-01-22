@@ -25,6 +25,33 @@ def restart_program():
 	python = sys.executable
 	os.execl(python, python, * sys.argv)
 
+def siderMembers(to, mid):
+    	try:
+        	arrData = ""
+		textx = "Total Sider User「{}」\nHaii ".format(str(len(mid)))
+		arr = []
+		no = 1
+		num = 2
+		for i in mid:
+			mention = "@x\n"
+			slen = str(len(textx))
+			elen = str(len(textx) + len(mention) - 1)
+			arrData = {'S':slen, 'E':elen, 'M':i}
+			arr.append(arrData)
+			textx += mention+wait["mention"]
+			if no < len(mid):
+				no += 1
+				textx += "%i. " % (num)
+				num=(num+1)
+			else:
+				try:
+			    		no = "\n┗━━[ {} ]".format(str(client.getGroup(to).name))
+				except:
+				    	no = "\n┗━━[ Success ]"
+		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+	except Exception as error:
+        	client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+
 while True:
 	try:
 		ops=poll.singleTrace(count=50)
@@ -122,7 +149,7 @@ while True:
 											nm5 += [nama[m]]
 										client.mention(receiver, nm5)
 									client.sendText(receiver, "Members :"+str(jml))
-								elif text.lower() == 'ceksider':
+								elif text.lower() == 'sider on':
 									try:
 										del cctv['point'][receiver]
 										del cctv['sidermem'][receiver]
@@ -132,7 +159,7 @@ while True:
 									cctv['point'][receiver] = msg.id
 									cctv['sidermem'][receiver] = ""
 									cctv['cyduk'][receiver]=True
-								elif text.lower() == 'offread':
+								elif text.lower() == 'sider off':
 									if msg.to in cctv['point']:
 										cctv['cyduk'][receiver]=False
 										client.sendText(receiver, cctv['sidermem'][msg.to])
@@ -247,8 +274,7 @@ while True:
 									pass
 								else:
 									cctv['sidermem'][op.param1] += "\n~ " + Name
-									pref=['eh ada','hai kak','aloo..','nah','lg ngapain','halo','sini kak']
-									client.sendText(op.param1, str(random.choice(pref))+' '+Name)
+									siderMembers(op.param1, [op.param2])
 							else:
 								pass
 						else:
