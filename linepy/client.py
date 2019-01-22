@@ -46,8 +46,8 @@ class LineClient(LineApi, LineModels):
         bb = "Total Mention User「{}」\n\n  [ Mention ]\n1. ".format(str(len(nama)))
         strt = int(0)
         akh = int(0)
-		no = 1
-		num = 2
+	no = int(1)
+	num = int(2)
         nm = nama
         myid = self._client.getProfile().mid
         if myid in nm:    
@@ -59,7 +59,7 @@ class LineClient(LineApi, LineModels):
           akh = akh + 1
           bb += "@nrik \n"
 		  if no <= len(nm)
-		    no = no + 1
+		    	no = no + 1
 			bb += "%i. " % (num)
 			num = num + 1
 		  else:
