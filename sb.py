@@ -13,6 +13,9 @@ client.log("Auth Token : " + str(client.authToken))
 channel = LineChannel(client)
 client.log("Channel Access Token : " + str(channel.channelAccessToken))
 
+Setbot3 = codecs.open("wait.json","r","utf-8")
+wait = json.load(Setbot3)
+
 poll = LinePoll(client)
 mode='self'
 cctv={
