@@ -46,13 +46,9 @@ def mentionMembers(to, mid):
 			textx += mention
 			if no < len(mid):
 				no += 1
-				textx += "%i. " % (num)
-				num=(num+1)
+				textx += "❂➣ " % (num)
 			else:
-				try:
-					no = "\n┗━━[ {} ]".format(str(client.getGroup(to).name))
-				except:
-					no = "\n┗━━[ Success ]"
+				pass
 		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
 		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
