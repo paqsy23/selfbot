@@ -194,7 +194,7 @@ while True:
                                 nama = [contact.mid for contact in group.members]
                                 nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
                                 temp = 0
-                                for i in range(0, len(nama))
+                                for i in range(0, jml)
                                     if temp < 20:
                                         nm1 += [nama[i]]
                                         temp += 1
