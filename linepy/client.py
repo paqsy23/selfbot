@@ -43,7 +43,7 @@ class LineClient(LineApi, LineModels):
     @loggedIn
     def mention(self, to, nama):
         aa = ""
-        bb = ""
+        bb = "Total Mention User「{}」\n\n  [ Mention ]\n".format(str(len(nama)))
         strt = int(0)
         akh = int(0)
         nm = nama
