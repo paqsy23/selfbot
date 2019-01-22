@@ -39,7 +39,6 @@ class LineClient(LineApi, LineModels):
 
     """Plus"""
     
-    
     @loggedIn
     def mention(self, to, nama):
         aa = ""
