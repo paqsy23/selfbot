@@ -28,7 +28,7 @@ def restart_program():
 def siderMembers(to, mid):
     	try:
         	arrData = ""
-		textx = "Total Sider User「{}」\nHaii ".format(str(len(mid)))
+		textx = "Haii "
 		arr = []
 		no = 1
 		num = 2
