@@ -43,11 +43,9 @@ class LineClient(LineApi, LineModels):
     @loggedIn
     def mention(self, to, nama):
         aa = ""
-        bb = "Total Mention User「{}」\n\n  [ Mention ]\n1. ".format(str(len(nama)))
+        bb = "Total Mention User「{}」\n\n  [ Mention ]\n".format(str(len(nama)))
         strt = int(0)
         akh = int(0)
-	no = int(1)
-	num = int(2)
         nm = nama
         myid = self._client.getProfile().mid
         if myid in nm:    
@@ -57,16 +55,7 @@ class LineClient(LineApi, LineModels):
           aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(mm)+"},"""
           strt = strt + 7
           akh = akh + 1
-          bb += "@nrik \n"
-		  if no <= len(nm)
-		    	no = no + 1
-			bb += "%i. " % (num)
-			num = num + 1
-		  else:
-			try:
-				no += "\n┗━━[ {} ]".format(str(self._client.getGroup(to).name))
-			except:
-				no += "\n┗━━[ Success ]"
+          bb += "%mm @nrik \n"
         aa = (aa[:int(len(aa)-1)])
         text = bb
         try:
