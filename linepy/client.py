@@ -55,7 +55,7 @@ class LineClient(LineApi, LineModels):
           aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(mm)+"},"""
           strt = strt + 7
           akh = akh + 1
-          bb += "%mm @nrik \n"
+          bb += "@nrik \n"
         aa = (aa[:int(len(aa)-1)])
         text = bb
         try:
