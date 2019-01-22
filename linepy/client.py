@@ -46,27 +46,32 @@ class LineClient(LineApi, LineModels):
         bb = ""
         strt = int(0)
         akh = int(0)
+        temp = int(0)
         nm = nama
         myid = self._client.getProfile().mid
         if myid in nm:    
           nm.remove(myid)
         for mm in nm:
-          akh = akh + 6
-          aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(mm)+"},"""
-          strt = strt + 7
-          akh = akh + 1
-          bb += "@nrik \n"
-        aa = (aa[:int(len(aa)-1)])
-        text = bb
-        try:
-            msg = Message()
-            msg.to = to
-            msg.text = text
-            msg.contentMetadata = {'MENTION':'{"MENTIONEES":['+aa+']}'}
-            msg.contentType = 0
-            self._client.sendMessage(0, msg)
-        except Exception as error:
-           print(error, 'def Mention')
+            if temp < 20:
+                akh = akh + 6
+                aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(mm)+"},"""
+                strt = strt + 7
+                akh = akh + 1
+                bb += "@nrik \n"
+                temp += 1
+            else:
+                temp = int(0)
+                aa = (aa[:int(len(aa)-1)])
+                text = bb
+                try:
+                    msg = Message()
+                    msg.to = to
+                    msg.text = text
+                    msg.contentMetadata = {'MENTION':'{"MENTIONEES":['+aa+']}'}
+                    msg.contentType = 0
+                    self._client.sendMessage(0, msg)
+                except Exception as error:
+                   print(error, 'def Mention')
            
     @loggedIn
     def sendText(self, Tomid, text):
