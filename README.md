@@ -1,21 +1,36 @@
-# simpleSB
-Tutorial Install:
-<br><a href="http://www.youtube.com/watch?feature=player_embedded&v=bKfk7ek91iU
-" target="_blank"><img src="http://img.youtube.com/vi/bKfk7ek91iU/0.jpg" 
-alt="Tutorial Install" width="240" height="180" border="10" /></a>
+# SelfBot <br>
+Tutorial Install: <br><br>
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=wNYsqSFsGxU
-" target="_blank"><img src="http://img.youtube.com/vi/wNYsqSFsGxU/0.jpg" 
-alt="Tutorial Install" width="240" height="180" border="10" /></a>
+# C9 dan Sejenisnya: <br>
+Ketik -> sudo apt-get update <br>
+Ketik -> sudo apt-get install git <br>
+Ketik -> sudo apt-get install python-sofware-properties <br>
+Ketik -> sudo pip install rsa <br>
+Ketik -> sudo pip install pytz <br>
+Ketik -> sudo pip install thrift <br>
+Ketik -> sudo pip install requests <br>
+Ketik -> sudo pip install bs4 <br>
+Ketik -> sudo pip install gtts <br>
+Ketik -> sudo pip install goslate <br>
+Ketik -> sudo pip install googletrans <br>
+Ketik -> git clone https://github.com/paqsy23/selfbot <br>
+Ketik -> python selfbot/sb.py <br>
 
 <hr><br>
 Command : <br> 
-me          = Mengirim Kontak Sendiri <br>
-speed       = Test Kecepatan Bot <br>
-spic <tag>  = Kirim Foto Profile yg di Tag <br>
-scover <tag>= Kirim Foto Cover yg di Tag <br>
-tagall      = Tag Semua Member dalam Group <br>
-ceksider    = Mengecek CCTV <br>
-offread     = Tampilkan CCTV <br>
-<hr>
-source : linepy by https://github.com/fadhiilrachman/
+me            = Mengirim Kontak Sendiri <br>
+speed         = Test Kecepatan Bot <br>
+spic <tag>    = Kirim Foto Profile yg di Tag <br>
+scover <tag>  = Kirim Foto Cover yg di Tag <br>
+summon        = Tag Semua Member dalam Group <br>
+siders on/off = Menghidupkan/Mematikan ceksider <br>
+<hr><br><br>
+  
+ # My ID Line : paqsy23 <br><br>
+  
+ # Thanks to :<br>
+  - Allah SWT <br>
+  - Kedua Orang Tua <br>
+  - Keripik singkong
+  - Air mineral dingin
+  - https://github.com/Aditmadzs/
