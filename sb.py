@@ -83,7 +83,7 @@ while True:
                                     for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, len(nama)):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
@@ -91,11 +91,11 @@ while True:
                                     for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, 40):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for k in range(40, len(nama)):
                                         nm += [nama[k]]
                                     client.mention(receiver, nm)
@@ -103,15 +103,15 @@ while True:
                                     for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, 40):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for k in range(40, 60):
                                         nm += [nama[k]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for l in range(60, len(nama)):
                                         nm += [nama[l]]
                                     client.mention(receiver, nm)
@@ -119,104 +119,104 @@ while True:
                                     for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, 40):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for k in range(40, 60):
                                         nm += [nama[k]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for l in range(60, 80):
                                         nm += [nama[l]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for m in range(80, len(nama)):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-								if jml > 100 and jml <= 120:
-									for i in range(0, 20):
+			        if jml > 100 and jml <= 120:
+				    for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, 40):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for k in range(40, 60):
                                         nm += [nama[k]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for l in range(60, 80):
                                         nm += [nama[l]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for m in range(80, 100):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-									nm = []
-									for m in range(100, len(nama)):
+				    nm = []
+				    for m in range(100, len(nama)):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-								if jml > 120 and jml <= 140:
-									for i in range(0, 20):
+				if jml > 120 and jml <= 140:
+				    for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, 40):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for k in range(40, 60):
                                         nm += [nama[k]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for l in range(60, 80):
                                         nm += [nama[l]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for m in range(80, 100):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-									nm = []
-									for m in range(100, 120):
+				    nm = []
+				    for m in range(100, 120):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-									nm = []
-									for m in range(120, len(nama)):
+				    nm = []
+				    for m in range(120, len(nama)):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-								if jml > 140 and jml <= 160:
-									for i in range(0, 20):
+				if jml > 140 and jml <= 160:
+				    for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, 40):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for k in range(40, 60):
                                         nm += [nama[k]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for l in range(60, 80):
                                         nm += [nama[l]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for m in range(80, 100):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-									nm = []
-									for m in range(100, 120):
+				    nm = []
+				    for m in range(100, 120):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-									nm = []
-									for m in range(120, 140):
+				    nm = []
+				    for m in range(120, 140):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-									nm = []
-									for m in range(140, len(nama)):
+				    nm = []
+				    for m in range(140, len(nama)):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
                                 client.sendText(receiver, "Members :"+str(jml))
@@ -290,7 +290,7 @@ while True:
                                     for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, len(nama)):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
@@ -298,11 +298,11 @@ while True:
                                     for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, 40):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for k in range(40, len(nama)):
                                         nm += [nama[k]]
                                     client.mention(receiver, nm)
@@ -310,15 +310,15 @@ while True:
                                     for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, 40):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for k in range(40, 60):
                                         nm += [nama[k]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for l in range(60, len(nama)):
                                         nm += [nama[l]]
                                     client.mention(receiver, nm)
@@ -326,104 +326,104 @@ while True:
                                     for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, 40):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for k in range(40, 60):
                                         nm += [nama[k]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for l in range(60, 80):
                                         nm += [nama[l]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for m in range(80, len(nama)):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-								if jml > 100 and jml <= 120:
-									for i in range(0, 20):
+				if jml > 100 and jml <= 120:
+				    for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, 40):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for k in range(40, 60):
                                         nm += [nama[k]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for l in range(60, 80):
                                         nm += [nama[l]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for m in range(80, 100):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-									nm = []
-									for m in range(100, len(nama)):
+				    nm = []
+				    for m in range(100, len(nama)):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-								if jml > 120 and jml <= 140:
-									for i in range(0, 20):
+				if jml > 120 and jml <= 140:
+				    for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, 40):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for k in range(40, 60):
                                         nm += [nama[k]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for l in range(60, 80):
                                         nm += [nama[l]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for m in range(80, 100):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-									nm = []
-									for m in range(100, 120):
+				    nm = []
+				    for m in range(100, 120):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-									nm = []
-									for m in range(120, len(nama)):
+				    nm = []
+				    for m in range(120, len(nama)):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-								if jml > 140 and jml <= 160:
-									for i in range(0, 20):
+				if jml > 140 and jml <= 160:
+				    for i in range(0, 20):
                                         nm += [nama[i]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for j in range(20, 40):
                                         nm += [nama[j]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for k in range(40, 60):
                                         nm += [nama[k]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for l in range(60, 80):
                                         nm += [nama[l]]
                                     client.mention(receiver, nm)
-									nm = []
+				    nm = []
                                     for m in range(80, 100):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-									nm = []
-									for m in range(100, 120):
+				    nm = []
+				    for m in range(100, 120):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-									nm = []
-									for m in range(120, 140):
+				    nm = []
+				    for m in range(120, 140):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
-									nm = []
-									for m in range(140, len(nama)):
+				    nm = []
+				    for m in range(140, len(nama)):
                                         nm += [nama[m]]
                                     client.mention(receiver, nm)
                                 client.sendText(receiver, "Members :"+str(jml))
