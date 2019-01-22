@@ -28,7 +28,7 @@ def restart_program():
 def siderMembers(to, mid):
     	try:
         	arrData = ""
-		textx = "Haii "
+		textx = ""
 		arr = []
 		no = 1
 		num = 2
