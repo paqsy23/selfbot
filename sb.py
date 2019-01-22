@@ -5,8 +5,8 @@ from gtts import gTTS
 from googletrans import Translator
 
 
-#client = LineClient()
-client = LineClient(id='EMAIL HERE', passwd='PASSWORD HERE')
+client = LineClient()
+#client = LineClient(id='EMAIL HERE', passwd='PASSWORD HERE')
 #client = LineClient(authToken='AUTH TOKEN')
 client.log("Auth Token : " + str(client.authToken))
 
@@ -76,8 +76,7 @@ while True:
                             elif text.lower() == 'summon':
                                 group = client.getGroup(receiver)
                                 nama = [contact.mid for contact in group.members]
-                                jml = len(nama)
-				nm1, nm2, nm3, nm4, nm5, nm6, nm7, nm8 = [], [], [], [], [], [], [], []
+				nm1, nm2, nm3, nm4, nm5, nm6, nm7, nm8, jml = [], [], [], [], [], [], [], [], len(nama)
                                 if jml <= 20:
                                     client.mention(receiver, nama)
                                 if jml > 20 and jml <= 40:
