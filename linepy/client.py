@@ -46,7 +46,7 @@ class LineClient(LineApi, LineModels):
         key = ""
         bb = "╔════════════════════╗\n"
         bb += "       MENTION        \n"
-        bb += "╠════════════════════╝\n"
+        bb += "╚════════════════════╝\n"
         strt = int(0)
         akh = int(0)
         nm = nama
@@ -58,15 +58,15 @@ class LineClient(LineApi, LineModels):
           aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(mm)+"},"""
           strt = strt + 7
           akh = akh + 1
-          temp = " @nrik \n"
-          bb += "╠❂➣" + temp 
+          temp = "@nrik \n"
+          bb += temp 
         aa = (aa[:int(len(aa)-1)])
         text = bb
         try:
             msg = Message()
             msg.to = to
             msg.text = text
-            msg.contentMetadata = {'MENTION': str('{"MENTIONEES":'+json.dumps(aa)+'}')}
+            msg.contentMetadata = {'MENTION':'{"MENTIONEES":['+aa+']}'}
             msg.contentType = 0
             self._client.sendMessage(0, msg)
         except Exception as error:
