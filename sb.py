@@ -119,7 +119,73 @@ while True:
                                     client.mention(receiver, nm4)
                                     for m in range(80, len(nama)):
                                         nm5 += [nama[m]]
-                                    client.mention(receiver, nm5)             
+                                    client.mention(receiver, nm5)
+			                    if jml > 100 and jml <= 120:
+				                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    client.mention(receiver, nm1)
+                                    for j in range(20, 40):
+                                        nm2 += [nama[j]]
+                                    client.mention(receiver, nm2)
+                                    for k in range(40, 60):
+                                        nm3 += [nama[k]]
+                                    client.mention(receiver, nm3)
+                                    for l in range(60, 80):
+                                        nm4 += [nama[l]]
+                                    client.mention(receiver, nm4)
+                                    for m in range(80, 100):
+                                        nm5 += [nama[m]]
+                                    client.mention(receiver, nm5)
+				                    for m in range(100, len(nama)):
+                                        nm6 += [nama[m]]
+                                    client.mention(receiver, nm6)
+				                if jml > 120 and jml <= 140:
+				                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    client.mention(receiver, nm1)
+                                    for j in range(20, 40):
+                                        nm2 += [nama[j]]
+                                    client.mention(receiver, nm2)
+                                    for k in range(40, 60):
+                                        nm3 += [nama[k]]
+                                    client.mention(receiver, nm3)
+                                    for l in range(60, 80):
+                                        nm4 += [nama[l]]
+                                    client.mention(receiver, nm4)
+                                    for m in range(80, 100):
+                                        nm5 += [nama[m]]
+                                    client.mention(receiver, nm5)
+				                    for m in range(100, 120):
+                                        nm6 += [nama[m]]
+                                    client.mention(receiver, nm6)
+				                    for m in range(120, len(nama)):
+                                        nm7 += [nama[m]]
+                                    client.mention(receiver, nm7)
+				                if jml > 140 and jml <= 160:
+				                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    client.mention(receiver, nm1)
+                                    for j in range(20, 40):
+                                        nm2 += [nama[j]]
+                                    client.mention(receiver, nm2)
+                                    for k in range(40, 60):
+                                        nm3 += [nama[k]]
+                                    client.mention(receiver, nm3)
+                                    for l in range(60, 80):
+                                        nm4 += [nama[l]]
+                                    client.mention(receiver, nm4)
+                                    for m in range(80, 100):
+                                        nm5 += [nama[m]]
+                                    client.mention(receiver, nm5)
+				                    for m in range(100, 120):
+                                        nm6 += [nama[m]]
+                                    client.mention(receiver, nm6)
+				                    for m in range(120, 140):
+                                        nm7 += [nama[m]]
+                                    client.mention(receiver, nm7)
+				                    for m in range(140, len(nama)):
+                                        nm8 += [nama[m]]
+                                    client.mention(receiver, nm8)
                                 client.sendText(receiver, "Members :"+str(jml))
                             elif text.lower() == 'ceksider':
                                 try:
