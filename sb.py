@@ -36,7 +36,7 @@ def siderMembers(to, mid):
 		no = 1
 		num = 2
 		for i in mid:
-			mention = "@x\n"
+			mention = "@x"
 			slen = str(len(textx))
 			elen = str(len(textx) + len(mention) - 1)
 			arrData = {'S':slen, 'E':elen, 'M':i}
