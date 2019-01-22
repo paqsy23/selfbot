@@ -44,10 +44,8 @@ class LineClient(LineApi, LineModels):
     def mention(self, to, nama):
         try:
             arrData = ""
-            textx = "Total Mention User「{}」\n\n  [ Mention ]\n1. ".format(str(len(nama)))
+            textx = "Total Mention User「{}」\n\n  [ Mention ]\n".format(str(len(nama)))
             arr = []
-            no = 1
-            num = 2
             for i in nama:
                 mention = "@x\n"
                 slen = str(len(textx))
@@ -55,15 +53,6 @@ class LineClient(LineApi, LineModels):
                 arrData = {'S':slen, 'E':elen, 'M':i}
                 arr.append(arrData)
                 textx += mention
-                if no < len(mid):
-                    no += 1
-                    textx += "%i. " % (num)
-                    num=(num+1)
-                else:
-                    try:
-                        no = "\n┗━━[ {} ]".format(str(self._client.getGroup(to).name))
-                    except:
-                        no = "\n┗━━[ Success ]"
             self._client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
         except Exception as error:
             self._client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
