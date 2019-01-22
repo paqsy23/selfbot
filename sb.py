@@ -28,27 +28,27 @@ def restart_program():
 def siderMembers(to, mid):
     	try:
         	arrData, textx, arr = "", "", []
-		no = 1
-		num = 2
-		for i in mid:
-			mention = "@x\n"
-			slen = str(len(textx))
-			elen = str(len(textx) + len(mention) - 1)
-			arrData = {'S':slen, 'E':elen, 'M':i}
-			arr.append(arrData)
-			textx += mention+wait["mention"]
-			if no < len(mid):
-				no += 1
-				textx += "%i. " % (num)
-				num=(num+1)
-			else:
-				try:
-			    		no = "\n┗━━[ {} ]".format(str(client.getGroup(to).name))
-				except:
-				    	no = "\n┗━━[ Success ]"
-		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
-	except Exception as error:
-        	client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+			no = 1
+			num = 2
+			for i in mid:
+				mention = "@x\n"
+				slen = str(len(textx))
+				elen = str(len(textx) + len(mention) - 1)
+				arrData = {'S':slen, 'E':elen, 'M':i}
+				arr.append(arrData)
+				textx += mention+wait["mention"]
+				if no < len(mid):
+					no += 1
+					textx += "%i. " % (num)
+					num=(num+1)
+				else:
+					try:
+							no = "\n┗━━[ {} ]".format(str(client.getGroup(to).name))
+					except:
+							no = "\n┗━━[ Success ]"
+			client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		except Exception as error:
+				client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
 while True:
 	try:
