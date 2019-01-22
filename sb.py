@@ -143,7 +143,7 @@ while True:
 											nm5 += [nama[m]]
 										client.mention(receiver, nm5)
 									client.sendText(receiver, "Members :"+str(jml))
-								elif text.lower() == 'sider on':
+								elif text.lower() == 'siders on':
 									try:
 										del cctv['point'][receiver]
 										del cctv['sidermem'][receiver]
@@ -153,7 +153,7 @@ while True:
 									cctv['point'][receiver] = msg.id
 									cctv['sidermem'][receiver] = ""
 									cctv['cyduk'][receiver]=True
-								elif text.lower() == 'sider off':
+								elif text.lower() == 'siders off':
 									if msg.to in cctv['point']:
 										cctv['cyduk'][receiver]=False
 										client.sendText(receiver, cctv['sidermem'][msg.to])
