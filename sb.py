@@ -194,53 +194,53 @@ while True:
                                 nama = [contact.mid for contact in group.members]
                                 nm1, nm2, nm3, nm4, jml = [], [], [], [], len(nama)
                                 if jml <= 20:
-                                    client.mentionMembers(msg.to, nama)
+                                    client.mentionMembers(receiver, nama)
                                 if jml > 20 and jml < 40:
                                     for i in range (0, 20):
                                         nm1 += [nama[i]]
-                                    client.mentionMembers(msg.to, nm1)
+                                    client.mentionMembers(receiver, nm1)
                                     for j in range (20, len(nama)-1):
                                         nm2 += [nama[j]]
-                                    client.mentionMembers(msg.to, nm2)
+                                    client.mentionMembers(receiver, nm2)
                                 if jml > 40 and jml < 60:
                                     for i in range (0, 20):
                                         nm1 += [nama[i]]
-                                    client.mentionMembers(msg.to, nm1)
+                                    client.mentionMembers(receiver, nm1)
                                     for j in range (20, 40):
                                         nm2 += [nama[j]]
-                                    client.mentionMembers(msg.to, nm2)
+                                    client.mentionMembers(receiver, nm2)
                                     for k in range (40, len(nama)-1):
                                         nm3 += [nama[k]]
-                                    client.mentionMembers(msg.to, nm3)
+                                    client.mentionMembers(receiver, nm3)
                                 if jml > 60 and jml < 80:
                                     for i in range (0, 20):
                                         nm1 += [nama[i]]
-                                    client.mentionMembers(msg.to, nm1)
+                                    client.mentionMembers(receiver, nm1)
                                     for j in range (20, 40):
                                         nm2 += [nama[j]]
-                                    client.mentionMembers(msg.to, nm2)
+                                    client.mentionMembers(receiver, nm2)
                                     for k in range (40, 60):
                                         nm3 += [nama[k]]
-                                    client.mentionMembers(msg.to, nm3)
+                                    client.mentionMembers(receiver, nm3)
                                     for l in range (80, len(nama)-1):
                                         nm4 += [nama[l]]
-                                    client.mentionMembers(msg.to, nm4)
+                                    client.mentionMembers(receiver, nm4)
                                 if jml > 80 and jml < 100:
                                     for i in range (0, 20):
                                         nm1 += [nama[i]]
-                                    client.mentionMembers(msg.to, nm1)
+                                    client.mentionMembers(receiver, nm1)
                                     for j in range (20, 40):
                                         nm2 += [nama[j]]
-                                    client.mentionMembers(msg.to, nm2)
+                                    client.mentionMembers(receiver, nm2)
                                     for k in range (40, 60):
                                         nm3 += [nama[k]]
-                                    client.mentionMembers(msg.to, nm3)
+                                    client.mentionMembers(receiver, nm3)
                                     for l in range (60, 80):
                                         nm4 += [nama[l]]
-                                    client.mentionMembers(msg.to, nm4)
+                                    client.mentionMembers(receiver, nm4)
                                     for m in range (80, len(nama)-1):
                                         nm5 += [nama[m]]
-                                    client.mentionMembers(msg.to, nm4)             
+                                    client.mentionMembers(receiver, nm4)             
                             elif text.lower() == 'ceksider':
                                 try:
                                     del cctv['point'][receiver]
