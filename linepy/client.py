@@ -42,20 +42,31 @@ class LineClient(LineApi, LineModels):
     
     @loggedIn
     def mention(self, to, nama):
+        aa = ""
+        bb = ""
+        strt = int(0)
+        akh = int(0)
+        nm = nama
+        myid = self._client.getProfile().mid
+        if myid in nm:    
+          nm.remove(myid)
+        for mm in nm:
+          akh = akh + 6
+          aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(mm)+"},"""
+          strt = strt + 7
+          akh = akh + 1
+          bb += "@nrik \n"
+        aa = (aa[:int(len(aa)-1)])
+        text = bb
         try:
-            arrData = ""
-            textx = "Total Mention User「{}」\n\n  [ Mention ]\n".format(str(len(nama)))
-            arr = []
-            for i in nama:
-                mention = "@x\n"
-                slen = str(len(textx))
-                elen = str(len(textx) + len(mention) - 1)
-                arrData = {'S':slen, 'E':elen, 'M':i}
-                arr.append(arrData)
-                textx += mention
-            self._client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+            msg = Message()
+            msg.to = to
+            msg.text = text
+            msg.contentMetadata = {'MENTION':'{"MENTIONEES":['+aa+']}'}
+            msg.contentType = 0
+            self._client.sendMessage(0, msg)
         except Exception as error:
-            self._client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+           print(error, 'def Mention')
            
     @loggedIn
     def sendText(self, Tomid, text):
