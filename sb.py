@@ -136,8 +136,8 @@ while True:
                                     for m in range(80, 100):
                                         nm5 += [nama[m]]
                                     client.mention(receiver, nm5)
-				    for m in range(100, len(nama)):
-                                        nm6 += [nama[m]]
+				    for n in range(100, len(nama)):
+                                        nm6 += [nama[n]]
                                     client.mention(receiver, nm6)
                                 client.sendText(receiver, "Members :"+str(jml))
                             elif text.lower() == 'ceksider':
