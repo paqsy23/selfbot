@@ -55,7 +55,8 @@ class LineClient(LineApi, LineModels):
                 arrData = {'S':slen, 'E':elen, 'M':i}
                 arr.append(arrData)
                 textx += mention
-                if int(no) < len(mid):
+                temp = int(no)
+                if temp < len(mid):
                     no += 1
                     textx += "%i. " % (num)
                     num=(num+1)
