@@ -65,15 +65,15 @@ while True:
                                         client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif 'scover' in text.lower():
-                                try:
-                                    key = eval(msg.contentMetadata["MENTION"])
-                                    u = key["MENTIONEES"][0]["M"]
-                                    a = channel.getProfileCoverURL(mid=u)
-                                    client.sendImageWithURL(receiver, a)
-                                except Exception as e:
-                                    client.sendText(receiver, str(e))
-                            elif text.lower() == 'summon':
+			    elif 'scover' in text.lower():
+				try:
+				    key = eval(msg.contentMetadata["MENTION"])
+				    u = key["MENTIONEES"][0]["M"]
+				    a = channel.getProfileCoverURL(mid=u)
+				    client.sendImageWithURL(receiver, a)
+				except Exception as e:
+				    client.sendText(receiver, str(e))
+				elif text.lower() == 'summon':
                                 group = client.getGroup(receiver)
                                 nama = [contact.mid for contact in group.members]
                                 nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
