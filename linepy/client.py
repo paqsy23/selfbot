@@ -43,21 +43,19 @@ class LineClient(LineApi, LineModels):
     @loggedIn
     def mention(self, to, nama):
         aa = ""
-        key = ""
         bb = ""
         strt = int(0)
         akh = int(0)
         nm = nama
         myid = self._client.getProfile().mid
-        if myid in nm:    
-          nm.remove(myid)
+        #if myid in nm:    
+          #nm.remove(myid)
         for mm in nm:
           akh = akh + 6
-          temp = "@nrik \n"
-          aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh) + len(temp)-1)+""","M":"""+json.dumps(mm)+"},"""
+          aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(mm)+"},"""
           strt = strt + 7
           akh = akh + 1
-          bb += "❂➣ " + temp 
+          bb += "@nrik \n" 
         aa = (aa[:int(len(aa)-1)])
         text = bb
         try:
