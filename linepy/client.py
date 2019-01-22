@@ -46,9 +46,6 @@ class LineClient(LineApi, LineModels):
         strt = int(0)
         akh = int(0)
         nm = nama
-        myid = self._client.getProfile().mid
-        if myid in nm:    
-          nm.remove(myid)
         for mm in nm:
           akh = akh + 6
           aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(mm)+"},"""
