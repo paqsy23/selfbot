@@ -27,9 +27,7 @@ def restart_program():
 
 def siderMembers(to, mid):
     	try:
-        	arrData, textx, arr = "", "", []
-		no = 1
-		num = 2
+        	arrData, textx, arr, no, num = "", "Haii ", [], 1, 2
 		for i in mid:
 			mention = "@x\n"
 			slen = str(len(textx))
