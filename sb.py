@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from linepy import *
-import json, time, random, tempfile, os, sys
+import json, time, random, tempfile, os, sys, codecs
 from gtts import gTTS
 from googletrans import Translator
 
