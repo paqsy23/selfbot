@@ -43,7 +43,7 @@ class LineClient(LineApi, LineModels):
     @loggedIn
     def mention(self, to, nama):
         aa = ""
-        bb = ""
+        bb = "Total Mention User「{}」\n\n  [ Mention ]\n1. ".format(str(len(nama)))
         strt = int(0)
         akh = int(0)
         nm = nama
@@ -56,6 +56,13 @@ class LineClient(LineApi, LineModels):
           strt = strt + 7
           akh = akh + 1
           bb += "@nrik \n"
+		  if mm < len(nama)
+			bb += "%i. "
+		  else:
+			try:
+				bb += "\n┗━━[ {} ]".format(str(aditmadzs.getGroup(to).name))
+			except:
+				bb += "\n┗━━[ Success ]"
         aa = (aa[:int(len(aa)-1)])
         text = bb
         try:
@@ -376,4 +383,3 @@ class LineClient(LineApi, LineModels):
     @loggedIn
     def getJoinedSquares(self, continuationToken, limit):
         return self.square.getJoinedSquares(continuationToken, limit)
-
