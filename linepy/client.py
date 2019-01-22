@@ -56,11 +56,11 @@ class LineClient(LineApi, LineModels):
           strt = strt + 7
           akh = akh + 1
           bb += "@nrik \n"
-		  if mm < len(nama)
+		  if mm < len(nm)
 			bb += "%i. "
 		  else:
 			try:
-				bb += "\n┗━━[ {} ]".format(str(aditmadzs.getGroup(to).name))
+				bb += "\n┗━━[ {} ]".format(str(self._client.getGroup(to).name))
 			except:
 				bb += "\n┗━━[ Success ]"
         aa = (aa[:int(len(aa)-1)])
