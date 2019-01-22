@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from linepy import *
-import json, time, random, tempfile, os, sys
+import json, time, random, tempfile, os, sys, pytz
 from gtts import gTTS
 from googletrans import Translator
+from datetime import timedelta, date
+from datetime import datetime
 
 
 client = LineClient()
@@ -145,6 +147,9 @@ while True:
 									client.sendText(receiver, "Members :"+str(jml))
 								elif text.lower() == 'siders on':
 									try:
+										tz = pytz.timezone("Asia/Jakarta")
+										timeNow = datetime.now(tz=tz)
+										client.sendMessage(msg.to, "Cek sider diaktifkan\n\nTanggal : "+ datetime.strftime(timeNow,'%Y-%m-%d')+"\nJam [ "+ datetime.strftime(timeNow,'%H:%M:%S')+" ]")
 										del cctv['point'][receiver]
 										del cctv['sidermem'][receiver]
 										del cctv['cyduk'][receiver]
@@ -156,9 +161,11 @@ while True:
 								elif text.lower() == 'siders off':
 									if msg.to in cctv['point']:
 										cctv['cyduk'][receiver]=False
-										client.sendText(receiver, cctv['sidermem'][msg.to])
+										tz = pytz.timezone("Asia/Jakarta")
+										timeNow = datetime.now(tz=tz)
+										client.sendText(msg.to, "Cek sider dinonaktifkan\n\nTanggal : "+ datetime.strftime(timeNow,'%Y-%m-%d')+"\nJam [ "+ datetime.strftime(timeNow,'%H:%M:%S')+" ]")
 									else:
-										client.sendText(receiver, "Heh belom di Set")
+										client.sendText(msg.to, "Cek sider sudah nonaktif")
 								elif text.lower() == 'mode:self':
 									mode = 'self'
 									client.sendText(receiver, 'Mode Public Off')
