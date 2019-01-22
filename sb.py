@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from linepy import *
-import json, time, random, tempfile, os, sys, codecs
+import json, time, random, tempfile, os, sys
 from gtts import gTTS
 from googletrans import Translator
 
@@ -13,8 +13,8 @@ client.log("Auth Token : " + str(client.authToken))
 channel = LineChannel(client)
 client.log("Channel Access Token : " + str(channel.channelAccessToken))
 
-Setbot3 = codecs.open("wait.json","r","utf-8")
-wait = json.load(Setbot3)
+#Setbot3 = codecs.open("wait.json","r","utf-8")
+#wait = json.load(Setbot3)
 
 poll = LinePoll(client)
 mode='self'
@@ -41,7 +41,7 @@ def siderMembers(to, mid):
 			elen = str(len(textx) + len(mention) - 1)
 			arrData = {'S':slen, 'E':elen, 'M':i}
 			arr.append(arrData)
-			textx += mention+wait["mention"]
+			textx += mention
 		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
 		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
