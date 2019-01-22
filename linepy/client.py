@@ -66,7 +66,7 @@ class LineClient(LineApi, LineModels):
             msg = Message()
             msg.to = to
             msg.text = text
-            msg.contentMetadata = {'MENTION':'{"MENTIONEES":['+aa+']}'}
+            msg.contentMetadata = {'MENTION': str('{"MENTIONEES":'+json.dumps(aa)+'}')}
             msg.contentType = 0
             self._client.sendMessage(0, msg)
         except Exception as error:
