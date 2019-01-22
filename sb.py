@@ -71,7 +71,7 @@ while True:
                             elif text.lower() == 'tagall':
                                 group = client.getGroup(receiver)
                                 nama = [contact.mid for contact in group.members]
-                                nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
+                                nm1, nm2, nm3, nm4, nm5, nm6, nm7, nm8, jml = [], [], [], [], [], len(nama)
                                 if jml <= 20:
                                     client.mention(receiver, nama)
                                 if jml > 20 and jml <= 40:
