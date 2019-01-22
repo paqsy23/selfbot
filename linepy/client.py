@@ -41,7 +41,7 @@ class LineClient(LineApi, LineModels):
     
     
     @loggedIn
-    def mentionMembers(to, mid):
+    def mentionMembers(self, to, mid):
         try:
             arrData = ""
             textx = "Total Mention User「{}」\n\n  [ Mention ]\n1. ".format(str(len(mid)))
