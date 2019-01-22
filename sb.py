@@ -30,6 +30,33 @@ def restart_program():
 	python = sys.executable
 	os.execl(python, python, * sys.argv)
 
+def mentionMembers(to, mid):
+	try:
+		arrData = ""
+		textx = "Total Mention User「{}」\n\n  [ Mention ]\n1. ".format(str(len(mid)))
+		arr = []
+		no = 1
+		num = 2
+		for i in mid:
+			mention = "@x\n"
+			slen = str(len(textx))
+			elen = str(len(textx) + len(mention) - 1)
+			arrData = {'S':slen, 'E':elen, 'M':i}
+			arr.append(arrData)
+			textx += mention
+			if no < len(mid):
+				no += 1
+				textx += "%i. " % (num)
+				num=(num+1)
+			else:
+				try:
+					no = "\n┗━━[ {} ]".format(str(client.getGroup(to).name))
+				except:
+					no = "\n┗━━[ Success ]"
+		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+	except Exception as error:
+		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+	
 def siderMembers(to, mid):
 	try:
 		arrData = ""
@@ -97,54 +124,53 @@ while True:
 									nama = [contact.mid for contact in group.members]
 									nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
 									if jml <= 20:
-										client.mention(receiver, nama)
+										mentionMembers(receiver, nama)
 									if jml > 20 and jml <= 40:
 										for i in range(0, 20):
 											nm1 += [nama[i]]
-										client.mention(receiver, nm1)
+										mentionMembers(receiver, nm1)
 										for j in range(20, len(nama)):
 											nm2 += [nama[j]]
-										client.mention(receiver, nm2)
+										mentionMembers(receiver, nm2)
 									if jml > 40 and jml <= 60:
 										for i in range(0, 20):
 											nm1 += [nama[i]]
-										client.mention(receiver, nm1)
+										mentionMembers(receiver, nm1)
 										for j in range(20, 40):
 											nm2 += [nama[j]]
-										client.mention(receiver, nm2)
+										mentionMembers(receiver, nm2)
 										for k in range(40, len(nama)):
 											nm3 += [nama[k]]
-										client.mention(receiver, nm3)
+										mentionMembers(receiver, nm3)
 									if jml > 60 and jml <= 80:
 										for i in range(0, 20):
 											nm1 += [nama[i]]
-										client.mention(receiver, nm1)
+										mentionMembers(receiver, nm1)
 										for j in range(20, 40):
 											nm2 += [nama[j]]
-										client.mention(receiver, nm2)
+										mentionMembers(receiver, nm2)
 										for k in range(40, 60):
 											nm3 += [nama[k]]
-										client.mention(receiver, nm3)
+										mentionMembers(receiver, nm3)
 										for l in range(60, len(nama)):
 											nm4 += [nama[l]]
-										client.mention(receiver, nm4)
+										mentionMembers(receiver, nm4)
 									if jml > 80 and jml <= 100:
 										for i in range(0, 20):
 											nm1 += [nama[i]]
-										client.mention(receiver, nm1)
+										mentionMembers(receiver, nm1)
 										for j in range(20, 40):
 											nm2 += [nama[j]]
-										client.mention(receiver, nm2)
+										mentionMembers(receiver, nm2)
 										for k in range(40, 60):
 											nm3 += [nama[k]]
-										client.mention(receiver, nm3)
+										mentionMembers(receiver, nm3)
 										for l in range(60, 80):
 											nm4 += [nama[l]]
-										client.mention(receiver, nm4)
+										mentionMembers(receiver, nm4)
 										for m in range(80, len(nama)):
 											nm5 += [nama[m]]
-										client.mention(receiver, nm5)
-									client.sendText(receiver, "Members :"+str(jml))
+										mentionMembers(receiver, nm5)
 								elif text.lower() == 'siders on':
 									try:
 										tz = pytz.timezone("Asia/Jakarta")
@@ -215,53 +241,53 @@ while True:
 									nama = [contact.mid for contact in group.members]
 									nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
 									if jml <= 20:
-										client.mention(receiver, nama)
+										mentionMembers(receiver, nama)
 									if jml > 20 and jml <= 40:
 										for i in range(0, 20):
 											nm1 += [nama[i]]
-										client.mention(receiver, nm1)
+										mentionMembers(receiver, nm1)
 										for j in range(20, len(nama)):
 											nm2 += [nama[j]]
-										client.mention(receiver, nm2)
+										mentionMembers(receiver, nm2)
 									if jml > 40 and jml <= 60:
 										for i in range(0, 20):
 											nm1 += [nama[i]]
-										client.mention(receiver, nm1)
+										mentionMembers(receiver, nm1)
 										for j in range(20, 40):
 											nm2 += [nama[j]]
-										client.mention(receiver, nm2)
+										mentionMembers(receiver, nm2)
 										for k in range(40, len(nama)):
 											nm3 += [nama[k]]
-										client.mention(receiver, nm3)
+										mentionMembers(receiver, nm3)
 									if jml > 60 and jml <= 80:
 										for i in range(0, 20):
 											nm1 += [nama[i]]
-										client.mention(receiver, nm1)
+										mentionMembers(receiver, nm1)
 										for j in range(20, 40):
 											nm2 += [nama[j]]
-										client.mention(receiver, nm2)
+										mentionMembers(receiver, nm2)
 										for k in range(40, 60):
 											nm3 += [nama[k]]
-										client.mention(receiver, nm3)
+										mentionMembers(receiver, nm3)
 										for l in range(60, len(nama)):
 											nm4 += [nama[l]]
-										client.mention(receiver, nm4)
+										mentionMembers(receiver, nm4)
 									if jml > 80 and jml <= 100:
 										for i in range(0, 20):
 											nm1 += [nama[i]]
-										client.mention(receiver, nm1)
+										mentionMembers(receiver, nm1)
 										for j in range(20, 40):
 											nm2 += [nama[j]]
-										client.mention(receiver, nm2)
+										mentionMembers(receiver, nm2)
 										for k in range(40, 60):
 											nm3 += [nama[k]]
-										client.mention(receiver, nm3)
+										mentionMembers(receiver, nm3)
 										for l in range(60, 80):
 											nm4 += [nama[l]]
-										client.mention(receiver, nm4)
+										mentionMembers(receiver, nm4)
 										for m in range(80, len(nama)):
 											nm5 += [nama[m]]
-										client.mention(receiver, nm5)
+										mentionMembers(receiver, nm5)
 									client.sendText(receiver, "Members :"+str(jml))
 					except Exception as e:
 						client.log("[SEND_MESSAGE] ERROR : " + str(e))
