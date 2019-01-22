@@ -42,31 +42,31 @@ class LineClient(LineApi, LineModels):
     
     @loggedIn
     def mention(self, to, nama):
-        aa = ""
-        bb = ""
-        strt = int(0)
-        akh = int(0)
-        nm = nama
-        myid = self._client.getProfile().mid
-        #if myid in nm:    
-          #nm.remove(myid)
-        for mm in nm:
-          akh = akh + 6
-          aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(mm)+"},"""
-          strt = strt + 7
-          akh = akh + 1
-          bb += "@nrik \n" 
-        aa = (aa[:int(len(aa)-1)])
-        text = bb
         try:
-            msg = Message()
-            msg.to = to
-            msg.text = text
-            msg.contentMetadata = {'MENTION':'{"MENTIONEES":['+aa+']}'}
-            msg.contentType = 0
-            self._client.sendMessage(0, msg)
+            arrData = ""
+            textx = "Total Mention User「{}」\n\n  [ Mention ]\n1. ".format(str(len(nama)))
+            arr = []
+            no = 1
+            num = 2
+            for i in nama:
+                mention = "@x\n"
+                slen = str(len(textx))
+                elen = str(len(textx) + len(mention) - 1)
+                arrData = {'S':slen, 'E':elen, 'M':i}
+                arr.append(arrData)
+                textx += mention
+                if no < len(mid):
+                    no += 1
+                    textx += "%i. " % (num)
+                    num=(num+1)
+                else:
+                    try:
+                        no = "\n┗━━[ {} ]".format(str(self._client.getGroup(to).name))
+                    except:
+                        no = "\n┗━━[ Success ]"
+            self._client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
         except Exception as error:
-           print(error, 'def Mention')
+            self._client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
            
     @loggedIn
     def sendText(self, Tomid, text):
