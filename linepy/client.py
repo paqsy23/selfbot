@@ -44,9 +44,7 @@ class LineClient(LineApi, LineModels):
     def mention(self, to, nama):
         aa = ""
         key = ""
-        bb = "╔════════════════════╗\n"
-        bb += "       MENTION        \n"
-        bb += "╚════════════════════╝\n"
+        bb = ""
         strt = int(0)
         akh = int(0)
         nm = nama
@@ -55,11 +53,11 @@ class LineClient(LineApi, LineModels):
           nm.remove(myid)
         for mm in nm:
           akh = akh + 6
-          aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(mm)+"},"""
+          temp = "@nrik \n"
+          aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh) + len(temp)-1)+""","M":"""+json.dumps(mm)+"},"""
           strt = strt + 7
           akh = akh + 1
-          temp = "@nrik \n"
-          bb += temp 
+          bb += "❂➣ " + temp 
         aa = (aa[:int(len(aa)-1)])
         text = bb
         try:
