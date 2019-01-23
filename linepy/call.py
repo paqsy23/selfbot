@@ -15,10 +15,8 @@ class LineCall(object):
     isLogin = False
     client  = None
 
-    def __init__(self, client):
-        if type(client) is not LineClient:
-            raise Exception("You need to set LineClient instance to initialize LineCall")
-        self.client = client
+    def __init__(self):
+        self.isLogin = True
         
     def acquireCallRoute(self, to):
         return self.client.call.acquireCallRoute(to)
