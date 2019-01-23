@@ -78,12 +78,12 @@ def siderMembers(to, mid):
 		textx = "Haii "
 		arr = []
 		for i in mid:
-			mention = "@x"
+			mention = "@x\n"
 			slen = str(len(textx))
 			elen = str(len(textx) + len(mention) - 1)
 			arrData = {'S':slen, 'E':elen, 'M':i}
 			arr.append(arrData)
-			textx += mention
+			textx += mention + "Ikut nimbrung gih"
 		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
 		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
