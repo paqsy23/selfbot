@@ -129,26 +129,23 @@ while True:
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-								elif text.lower().startswith("spamcall: "):
-									proses = text.split(":")
-									strnum = text.replace(proses[0] + ": ","")
-									num =  int(strnum)
-									limit = num
-									client.sendMessage(msg.to,"Total Spamcall Diubah Menjadi " +strnum)
-								elif text.lower() == "spamcall":
-									group = client.getGroup(receiver)
-									nama = [contact.mid for contact in group.members]
-									jmlh = int(limit)
-									if jmlh <= 1000:
-										for x in range(jmlh):
-											try:
-												client.acquireGroupCallRoute(group.id)
-												client.inviteIntoGroupCall(nama.mid, contactIds=nama)
-											except Exception as e:
-												client.sendMessage(msg.to,str(e))
-										client.sendMessage(msg.to, "Berhasil mengundang {} undangan Call Grup".format(str(limit)))
-									else:
-										client.sendMessage(msg.to,"Jumlah melebihi batas")
+								elif "mid @" in msg.text.lower():
+									_name = msg.text.lower().replace("mid @","")
+									_nametarget = _name.rstrip(' ')
+									gs = client.getGroup(msg.to)
+									for g in gs.members:
+										if _nametarget == g.displayName:
+											client.sendText(msg.to, g.mid)
+										else:
+											pass
+								elif 'Spam: ' in msg.text:
+									korban = msg.text.replace('Spam: ','')
+									korban2 = korban.split(' ')
+									midd = korban2[0]
+									jumlah = int(korban2[1])
+									if jumlah <= 1000:
+										for var in range(0,jumlah):
+											client.sendMessage(midd, "spam")
 								elif text.lower() == 'speed':
 									start = time.time()
 									client.sendText(receiver, "TestSpeed")
