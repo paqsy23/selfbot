@@ -66,7 +66,7 @@ def mentionMembers(to, mid):
 			textx += mention
 			if no < len(mid):
 				no += 1
-				textx += "❂➣ " % (num)
+				textx += "❂➣ "
 			else:
 				pass
 		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
