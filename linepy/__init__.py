@@ -10,4 +10,4 @@ __author__          = 'Fadhiil Rachman'
 __author_email__    = 'fadhiilrachman@gmail.com'
 __url__             = 'http://github.com/fadhiilrachman/line-py'
 
-__all__ = ['LineClient', 'LineChannel', 'LineCall', 'LinePoll', 'OpType']
+__all__ = ['LineClient', 'LineChannel', 'LinePoll', 'OpType']
