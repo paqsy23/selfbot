@@ -38,7 +38,7 @@ def welcomeMembers(to, mid):
 		textx = "Haii  "
 		arr = []
 		ginfo = client.getGroup(to)
-		for i in mid
+		for i in mid:
 			mention = "@x\n"
 			slen = str(len(textx))
 			elen = str(len(textx) + len(mention) - 1)
