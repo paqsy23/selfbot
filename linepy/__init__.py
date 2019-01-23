@@ -1,6 +1,5 @@
 from .client import LineClient
 from .channel import LineChannel
-from .call import LineCall
 from .poll import LinePoll
 from akad.ttypes import OpType
 
