@@ -143,7 +143,7 @@ while True:
 										for x in range(jmlh):
 											try:
 												client.acquireGroupCallRoute(group.id)
-												client.inviteIntoGroupCall(contactIds=nama)
+												client.inviteIntoGroupCall(nama.mid, contactIds=nama)
 											except Exception as e:
 												client.sendMessage(msg.to,str(e))
 										client.sendMessage(msg.to, "Berhasil mengundang {} undangan Call Grup".format(str(limit)))
