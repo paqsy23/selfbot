@@ -154,9 +154,15 @@ while True:
 												client.kickoutFromGroup(msg.to, [target])
 											except:
 												pass
+								elif text.lower() == "cancelall":
+									group = client.getGroup(receiver)
+									pending = contact.mid for contact in group.invitee]
+									for mid in pending:
+										client.cancelGroupInvitation(op.param1, [mid])
 								elif text.lower() == "flush":
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
+									pending = [contact.mid for contact in group.invitee]
 									myid = client.getProfile().mid
 									if myid in nama:
 										nama.remove(myid)
@@ -165,6 +171,8 @@ while True:
 											client.kickoutFromGroup(msg.to, [nama[i]])
 										except:
 											pass
+									for mid in pending:
+										client.cancelGroupInvitation(op.param1, [mid])
 								elif text.lower() == 'speed':
 									start = time.time()
 									client.sendText(receiver, "TestSpeed")
