@@ -98,8 +98,6 @@ while True:
 			for op in ops:
 				if op.type == 17:
 					if op.param1 in welcome:
-						if op.param2 in Bots:
-							pass
 						welcomeMembers(op.param1, [op.param2])
 				if op.type == 25:
 					msg = op.message
