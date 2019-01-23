@@ -14,7 +14,7 @@ def loggedIn(func):
             args[0].callback.other("You must login to LINE")
     return checkLogin
 
-class LineClient(LineApi, LineModels):
+class LineClient(LineApi, LineModels, LineCall):
 
     def __init__(self, id=None, passwd=None, authToken=None, certificate=None, systemName=None, showQr=False, appName=None, phoneName=None, keepLoggedIn=True):
         
