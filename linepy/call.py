@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from .client import LineClient
 from akad.ttypes import MediaType
 from types import *
 
