@@ -18,12 +18,13 @@ Ketik -> python selfbot/sb.py <br>
 
 <hr><br>
 Command : <br> 
-me            = Mengirim Kontak Sendiri <br>
-speed         = Test Kecepatan Bot <br>
-spic <tag>    = Kirim Foto Profile yg di Tag <br>
-scover <tag>  = Kirim Foto Cover yg di Tag <br>
-summon        = Tag Semua Member dalam Group <br>
-siders on/off = Menghidupkan/Mematikan ceksider <br>
+me              = Mengirim Kontak Sendiri <br>
+speed           = Test Kecepatan Bot <br>
+spic <tag>      = Kirim Foto Profile yg di Tag <br>
+scover <tag>    = Kirim Foto Cover yg di Tag <br>
+summon          = Tag Semua Member dalam Group <br>
+siders on/off   = Menghidupkan/Mematikan ceksider <br>
+welcome on/off  = Menghidupkan/Mematikan welcome message <br>
 <hr><br><br>
   
  # My ID Line : paqsy23 <br><br>
