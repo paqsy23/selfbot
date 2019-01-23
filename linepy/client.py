@@ -2,6 +2,7 @@
 from akad.ttypes import Message
 from .api import LineApi
 from .models import LineModels
+from .call import LineCall
 from random import randint
 
 import json
