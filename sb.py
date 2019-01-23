@@ -131,10 +131,9 @@ while True:
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
 								elif "mid @" in msg.text.lower():
 									_name = msg.text.lower().replace("mid @","")
-									_nametarget = _name.rstrip(' ')
 									gs = client.getGroup(msg.to)
 									for g in gs.members:
-										if _nametarget == g.displayName:
+										if _name == g.displayName:
 											client.sendText(msg.to, g.mid)
 										else:
 											pass
