@@ -142,8 +142,8 @@ while True:
 									if jmlh <= 1000:
 										for x in range(jmlh):
 											try:
-												client.acquireGroupCallRoute(to)
-												client.inviteIntoGroupCall(to, contactIds=nama)
+												client.acquireGroupCallRoute(msg.to)
+												client.inviteIntoGroupCall(msg.to, contactIds=nama)
 											except Exception as e:
 												client.sendMessage(msg.to,str(e))
 										client.sendMessage(msg.to, "Berhasil mengundang {} undangan Call Grup".format(str(limit)))
