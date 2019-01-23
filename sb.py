@@ -26,9 +26,29 @@ cctv={
 	"sidermem":{}
 }
 
+welcome = []
+
 def restart_program():
 	python = sys.executable
 	os.execl(python, python, * sys.argv)
+
+def welcomeMembers(to, mid):
+	try:
+		arrData = ""
+		textx = "Haii  "
+		arr = []
+		no = 1
+		num = 2
+		for i in mid:
+			ginfo = client.getGroup(to)
+			mention = "@x\n"
+			slen = str(len(textx))
+			elen = str(len(textx) + len(mention) - 1)
+			arrData = {'S':slen, 'E':elen, 'M':i}
+			arr.append(arrData)
+			textx += mention+"Selamat datang di group "+str(ginfo.name)+"\nJangan lupa follow ig @paqsy23 yaa\nAuto follback kok"
+	except Exception as error:
+		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
 def mentionMembers(to, mid):
 	try:
@@ -76,6 +96,11 @@ while True:
 		ops=poll.singleTrace(count=50)
 		if ops != None:
 			for op in ops:
+				if op.type == 17:
+					if op.param1 in welcome:
+						if op.param2 in Bots:
+							pass
+						welcomeMembers(op.param1, [op.param2])
 				if op.type == 25:
 					msg = op.message
 					text = msg.text
@@ -196,6 +221,25 @@ while True:
 									client.sendText(receiver, 'Mode Public ON')
 								elif text.lower() == 'restart':
 									restart_program()
+								elif 'Welcome ' in msg.text:
+									spl = msg.text.replace('Welcome ','')
+									msgs = ""
+									if spl == 'on':
+										if msg.to in welcome:
+											msgs = "Welcome Msg sudah aktif"
+										else:
+											welcome.append(msg.to)
+											ginfo = client.getGroup(msg.to)
+											msgs = "Welcome Msg diaktifkan\nDi Group : " +str(ginfo.name)
+										client.sendMessage(msg.to, msgs)
+									elif spl == 'off':
+										if msg.to in welcome:
+											welcome.remove(msg.to)
+											ginfo = client.getGroup(msg.to)
+											msgs = "Welcome Msg dinonaktifkan\nDi Group : " +str(ginfo.name)
+										else:
+											msgs = "Welcome Msg sudah tidak aktif"
+										client.sendMessage(msg.to, msgs)
 					except Exception as e:
 						client.log("[SEND_MESSAGE] ERROR : " + str(e))
 	#=========================================================================================================================================#
