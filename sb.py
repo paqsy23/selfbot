@@ -38,19 +38,21 @@ def welcomeMembers(to, mid):
 		textx = "Haii  "
 		arr = []
 		ginfo = client.getGroup(to)
-		mention = "@x\n"
-		slen = str(len(textx))
-		elen = str(len(textx) + len(mention) - 1)
-		arrData = {'S':slen, 'E':elen, 'M':i}
-		arr.append(arrData)
-		textx += mention+"Selamat datang di group "+str(ginfo.name)+"\nJangan lupa follow ig @paqsy23 yaa\nAuto follback kok"
+		for i in mid
+			mention = "@x\n"
+			slen = str(len(textx))
+			elen = str(len(textx) + len(mention) - 1)
+			arrData = {'S':slen, 'E':elen, 'M':i}
+			arr.append(arrData)
+			textx += mention+"Selamat datang di group "+str(ginfo.name)+"\nJangan lupa follow ig @paqsy23 yaa\nAuto follback kok"
+		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
 		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
 def mentionMembers(to, mid):
 	try:
 		arrData = ""
-		textx = "Total Mention User「{}」\n\n  [ Mention ]\n❂➣ "
+		textx = "Total Mention User「{}」\n\n  [ Mention ]\n❂➣ ".format(str(len(mid)))
 		arr = []
 		no = 1
 		num = 2
@@ -75,8 +77,6 @@ def siderMembers(to, mid):
 		arrData = ""
 		textx = "Haii "
 		arr = []
-		no = 1
-		num = 2
 		for i in mid:
 			mention = "@x"
 			slen = str(len(textx))
