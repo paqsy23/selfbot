@@ -156,7 +156,7 @@ while True:
 												pass
 								elif text.lower() == "cancelall":
 									group = client.getGroup(receiver)
-									pending = contact.mid for contact in group.invitee]
+									pending = [contact.mid for contact in group.invitee]
 									for mid in pending:
 										client.cancelGroupInvitation(op.param1, [mid])
 								elif text.lower() == "flush":
