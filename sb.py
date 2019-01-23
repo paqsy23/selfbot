@@ -26,6 +26,7 @@ cctv={
 	"sidermem":{}
 }
 
+limit = 1
 welcome = []
 
 def restart_program():
@@ -128,32 +129,31 @@ while True:
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-								elif text.lower() == 'unsend me':
-									client.unsendMessage(msg_id)
+								elif text.lower().startswith("spamcall: "):
+									proses = text.split(":")
+									strnum = text.replace(proses[0] + ": ","")
+									num =  int(strnum)
+									limit = num
+									client.sendMessage(msg.to,"Total Spamcall Diubah Menjadi " +strnum)
+								elif text.lower() == "spamcall":
+									group = client.getGroup(receiver)
+									nama = [contact.mid for contact in group.members]
+									jmlh = int(limit)
+									if jmlh <= 1000:
+										for x in range(jmlh):
+											try:
+												call.acquireGroupCallRoute(to)
+												call.inviteIntoGroupCall(to, contactIds=nama)
+											except Exception as e:
+												client.sendMessage(msg.to,str(e))
+										client.sendMessage(msg.to, "Berhasil mengundang {} undangan Call Grup".format(str(limit)))
+									else:
+										client.sendMessage(msg.to,"Jumlah melebihi batas")
 								elif text.lower() == 'speed':
 									start = time.time()
 									client.sendText(receiver, "TestSpeed")
 									elapsed_time = time.time() - start
 									client.sendText(receiver, "%sdetik" % (elapsed_time))
-								elif 'spic' in text.lower():
-									try:
-										key = eval(msg.contentMetadata["MENTION"])
-										u = key["MENTIONEES"][0]["M"]
-										a = client.getContact(u).pictureStatus
-										if client.getContact(u).videoProfile != None:
-											client.sendVideoWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a+'/vp.small')
-										else:
-											client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a)
-									except Exception as e:
-										client.sendText(receiver, str(e))
-								elif 'scover' in text.lower():
-									try:
-										key = eval(msg.contentMetadata["MENTION"])
-										u = key["MENTIONEES"][0]["M"]
-										a = channel.getProfileCoverURL(mid=u)
-										client.sendImageWithURL(receiver, a)
-									except Exception as e:
-										client.sendText(receiver, str(e))
 								elif text.lower() == 'summon':
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
