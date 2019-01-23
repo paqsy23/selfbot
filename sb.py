@@ -135,14 +135,25 @@ while True:
 									mi = client.getContact(key1)
 									client.sendMessage(msg.to, "Nama : "+str(mi.displayName)+"\nMID : " +key1)
 									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
-								elif 'Spam: ' in msg.text:
-									korban = msg.text.replace('Spam: ','')
+								elif 'spam: ' in msg.text.lower():
+									korban = msg.text.lower().replace('spam: ','')
 									korban2 = korban.split(' ')
 									midd = korban2[0]
 									jumlah = int(korban2[1])
 									if jumlah <= 1000:
 										for var in range(0,jumlah):
 											client.sendMessage(midd, "spam")
+								elif "kick " in msg.text.lower():
+									key = eval(msg.contentMetadata["MENTION"])
+									key["MENTIONEES"][0]["M"]
+									targets = []
+									for x in key["MENTIONEES"]:
+										targets.append(x["M"])
+										for target in targets:
+											try:
+												client.kickoutFromGroup(msg.to, [target])
+											except:
+												pass
 								elif text.lower() == 'speed':
 									start = time.time()
 									client.sendText(receiver, "TestSpeed")
