@@ -158,7 +158,7 @@ while True:
 									group = client.getGroup(receiver)
 									pending = [contact.mid for contact in group.invitee]
 									for mid in pending:
-										client.cancelGroupInvitation(op.param1, [mid])
+										client.cancelGroupInvitation(msg.to, [mid])
 								elif text.lower() == "flush":
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
@@ -172,7 +172,7 @@ while True:
 										except:
 											pass
 									for mid in pending:
-										client.cancelGroupInvitation(op.param1, [mid])
+										client.cancelGroupInvitation(msg.to, [mid])
 								elif text.lower() == 'speed':
 									start = time.time()
 									client.sendText(receiver, "TestSpeed")
