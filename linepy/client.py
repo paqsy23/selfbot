@@ -36,7 +36,6 @@ class LineClient(LineApi, LineModels):
         self.groups     = self._client.getGroupIdsJoined()
 
         LineModels.__init__(self)
-        LineTalk.__init__(self)
         LineCall.__init__(self)
 
     """Plus"""
