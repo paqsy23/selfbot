@@ -143,7 +143,7 @@ while True:
 								elif text.lower() == 'summon':
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
-									nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
+									nm1, nm2, nm3, nm4, nm5, nm6, nm7, nm8, nm9, nm10, jml = [], [], [], [], [], [], [], [], [], [], len(nama)
 									if jml <= 20:
 										mentionMembers(receiver, nama)
 									if jml > 20 and jml <= 40:
@@ -192,6 +192,131 @@ while True:
 										for m in range(80, len(nama)):
 											nm5 += [nama[m]]
 										mentionMembers(receiver, nm5)
+									if jml > 100 and jml <= 120:
+										for i in range(0, 20):
+											nm1 += [nama[i]]
+										mentionMembers(receiver, nm1)
+										for j in range(20, 40):
+											nm2 += [nama[j]]
+										mentionMembers(receiver, nm2)
+										for k in range(40, 60):
+											nm3 += [nama[k]]
+										mentionMembers(receiver, nm3)
+										for l in range(60, 80):
+											nm4 += [nama[l]]
+										mentionMembers(receiver, nm4)
+										for m in range(80, 100):
+											nm5 += [nama[m]]
+										mentionMembers(receiver, nm5)
+										for n in range(100, len(nama)):
+											nm6 += [nama[n]]
+										mentionMembers(receiver, nm6)
+									if jml > 120 and jml <= 140:
+										for i in range(0, 20):
+											nm1 += [nama[i]]
+										mentionMembers(receiver, nm1)
+										for j in range(20, 40):
+											nm2 += [nama[j]]
+										mentionMembers(receiver, nm2)
+										for k in range(40, 60):
+											nm3 += [nama[k]]
+										mentionMembers(receiver, nm3)
+										for l in range(60, 80):
+											nm4 += [nama[l]]
+										mentionMembers(receiver, nm4)
+										for m in range(80, 100):
+											nm5 += [nama[m]]
+										mentionMembers(receiver, nm5)
+										for n in range(100, 120):
+											nm6 += [nama[n]]
+										mentionMembers(receiver, nm6)
+										for o in range(120, len(nama)):
+											nm7 += [nama[o]]
+										mentionMembers(receiver, nm7)
+									if jml > 140 and jml <= 160:
+										for i in range(0, 20):
+											nm1 += [nama[i]]
+										mentionMembers(receiver, nm1)
+										for j in range(20, 40):
+											nm2 += [nama[j]]
+										mentionMembers(receiver, nm2)
+										for k in range(40, 60):
+											nm3 += [nama[k]]
+										mentionMembers(receiver, nm3)
+										for l in range(60, 80):
+											nm4 += [nama[l]]
+										mentionMembers(receiver, nm4)
+										for m in range(80, 100):
+											nm5 += [nama[m]]
+										mentionMembers(receiver, nm5)
+										for n in range(100, 120):
+											nm6 += [nama[n]]
+										mentionMembers(receiver, nm6)
+										for o in range(120, 140):
+											nm7 += [nama[o]]
+										mentionMembers(receiver, nm7)
+										for p in range(140, len(nama)):
+											nm8 += [nama[p]]
+										mentionMembers(receiver, nm8)
+									if jml > 160 and jml <= 180:
+										for i in range(0, 20):
+											nm1 += [nama[i]]
+										mentionMembers(receiver, nm1)
+										for j in range(20, 40):
+											nm2 += [nama[j]]
+										mentionMembers(receiver, nm2)
+										for k in range(40, 60):
+											nm3 += [nama[k]]
+										mentionMembers(receiver, nm3)
+										for l in range(60, 80):
+											nm4 += [nama[l]]
+										mentionMembers(receiver, nm4)
+										for m in range(80, 100):
+											nm5 += [nama[m]]
+										mentionMembers(receiver, nm5)
+										for n in range(100, 120):
+											nm6 += [nama[n]]
+										mentionMembers(receiver, nm6)
+										for o in range(120, 140):
+											nm7 += [nama[o]]
+										mentionMembers(receiver, nm7)
+										for p in range(140, 160):
+											nm8 += [nama[p]]
+										mentionMembers(receiver, nm8)
+										for q in range(160, len(nama)):
+											nm9 += [nama[q]]
+										mentionMembers(receiver, nm9)
+									if jml > 180 and jml <= 200:
+										for i in range(0, 20):
+											nm1 += [nama[i]]
+										mentionMembers(receiver, nm1)
+										for j in range(20, 40):
+											nm2 += [nama[j]]
+										mentionMembers(receiver, nm2)
+										for k in range(40, 60):
+											nm3 += [nama[k]]
+										mentionMembers(receiver, nm3)
+										for l in range(60, 80):
+											nm4 += [nama[l]]
+										mentionMembers(receiver, nm4)
+										for m in range(80, 100):
+											nm5 += [nama[m]]
+										mentionMembers(receiver, nm5)
+										for n in range(100, 120):
+											nm6 += [nama[n]]
+										mentionMembers(receiver, nm6)
+										for o in range(120, 140):
+											nm7 += [nama[o]]
+										mentionMembers(receiver, nm7)
+										for p in range(140, 160):
+											nm8 += [nama[p]]
+										mentionMembers(receiver, nm8)
+										for q in range(160, 180):
+											nm9 += [nama[q]]
+										mentionMembers(receiver, nm9)
+										for r in range(180, len(nama)):
+											nm10 += [nama[r]]
+										mentionMembers(receiver, nm10)
 								elif text.lower() == 'siders on':
 									try:
 										tz = pytz.timezone("Asia/Jakarta")
