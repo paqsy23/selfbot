@@ -129,14 +129,12 @@ while True:
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-								elif "mid @" in msg.text.lower():
-									_name = msg.text.lower().replace("mid @","")
-									gs = client.getGroup(msg.to)
-									for g in gs.members:
-										if _name == g.displayName:
-											client.sendText(msg.to, g.mid)
-										else:
-											pass
+								elif 'mid ' in msg.text.lower():
+									key = eval(msg.contentMetadata["MENTION"])
+									key1 = key["MENTIONEES"][0]["M"]
+									mi = client.getContact(key1)
+									client.sendMessage(msg.to, "Nama : "+str(mi.displayName)+"\nMID : " +key1)
+									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
 								elif 'Spam: ' in msg.text:
 									korban = msg.text.replace('Spam: ','')
 									korban2 = korban.split(' ')
