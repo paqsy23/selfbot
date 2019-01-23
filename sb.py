@@ -154,6 +154,17 @@ while True:
 												client.kickoutFromGroup(msg.to, [target])
 											except:
 												pass
+								elif text.lower() == "flush":
+									group = client.getGroup(receiver)
+									nama = [contact.mid for contact in group.members]
+									myid = client.getProfile().mid
+									if myid in nama:
+										nama.remove(myid)
+									for i in range(0, len(nama)):
+										try:
+											client.kickoutFromGroup(msg.to, [nama[i]])
+										except:
+											pass
 								elif text.lower() == 'speed':
 									start = time.time()
 									client.sendText(receiver, "TestSpeed")
