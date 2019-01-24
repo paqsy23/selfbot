@@ -251,8 +251,8 @@ while True:
 									pending = [contact.mid for contact in group.invitee]
 									myid = client.getProfile().mid
 									nama.remove(myid)
-									for j in nama:
-										client.kickoutFromGroup(msg.to, [nama[j]])
+									for i in nama:
+										client.kickoutFromGroup(msg.to, [i])
 									for mid in pending:
 										client.cancelGroupInvitation(msg.to, [mid])
 								elif text.lower() == 'speed':
