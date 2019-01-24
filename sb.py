@@ -144,7 +144,7 @@ while True:
 										for x in range(jmlh):
 											try:
 												client.acquireGroupCallRoute(msg.to)
-												for mem in total
+												for mem in total:
 													client.inviteIntoGroupCall(mem[x].mid, contactIds=members)
 											except Exception as e:
 												client.sendMessage(msg.to,str(e))
