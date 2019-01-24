@@ -30,6 +30,7 @@ dellBots = False
 changePic = False
 limit = 1
 welcome = []
+Bots = []
 
 def help():
 	helpMessage = "╔══════╗" + "\n" + \
@@ -138,10 +139,6 @@ while True:
 	try:
 		ops=poll.singleTrace(count=50)
 		if ops != None:
-			mid = client.getProfile().mid
-			Amid = paq.getProfile().mid
-
-			Bots = [mid,Amid]
 			for op in ops:
 				if op.type == 15:
 					if op.param1 in welcome:
@@ -185,6 +182,7 @@ while True:
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
 								elif text.lower() == 'bot:on':
 									addBots = True
+									Bots.append(client.getProfile().mid)
 									client.sendMessage(msg.to,"Kirim kontaknya...")
 								elif text.lower() == 'bot:delete':
 									dellBots = True
