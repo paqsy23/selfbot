@@ -250,10 +250,8 @@ while True:
 									nama = [contact.mid for contact in group.members]
 									pending = [contact.mid for contact in group.invitee]
 									myid = client.getProfile().mid
-									botid = paq.getProfile().mid
 									nama.remove(myid)
-									nama.remove(botid)
-									for j in range(0, len(nama)):
+									for j in nama:
 										client.kickoutFromGroup(msg.to, [nama[j]])
 									for mid in pending:
 										client.cancelGroupInvitation(msg.to, [mid])
