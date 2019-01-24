@@ -30,30 +30,30 @@ limit = 1
 welcome = []
 
 def help():
-	helpMessage = "╔════════════════════╗" + "\n" + 
-		" ◄]·✪·Help·✪·[►" + "\n" + 
-		"╠════════════════════╝" + "\n" + 
-		"╠❂➣ Help\n" + 
-		"╠❂➣ Me\n" + 
-		"╠❂➣ Mymid\n" + 
-		"╠❂➣ Mid「@」\n" + 
-		"╠❂➣ Info 「@」\n" + 
-		"╠❂➣ Kick 「@」\n" + 
-		"╠❂➣ Flush \n" +
-		"╠❂➣ Cancelall \n" +
-		"╠❂➣ Restart\n" + 
-		"╠❂➣ Speed\n" +
-		"╠❂➣ Summon\n" + 
-		"╠❂➣ Siders「on/off」\n" +
-		"╠❂➣ Welcome「on/off」\n" +
-		"╠❂➣ Mode:「self/public」\n" +
-		"╠❂➣ Cekig:「ID IG」\n" +
-		"╠❂➣ Spam:「Mid korban」「Jumlah」\n" + 
-		"╠════════════════════╗" + "\n" +
-		" ◄]·✪PaqsyJFP✪·[►" + "\n" +
-		"╠════════════════════╝" + "\n" +
-		"╠════════════════════╗" + "\n" +
-		"◄]·✪line.me/ti/p/~paqsy23✪·[►" + "\n" +
+	helpMessage = "╔════════════════════╗" + "\n" + \
+		" ◄]·✪·Help·✪·[►" + "\n" + \
+		"╠════════════════════╝" + "\n" + \
+		"╠❂➣ Help\n" + \
+		"╠❂➣ Me\n" + \
+		"╠❂➣ Mymid\n" + \
+		"╠❂➣ Mid「@」\n" + \
+		"╠❂➣ Info 「@」\n" + \
+		"╠❂➣ Kick 「@」\n" + \
+		"╠❂➣ Flush \n" + \
+		"╠❂➣ Cancelall \n" + \
+		"╠❂➣ Restart\n" + \
+		"╠❂➣ Speed\n" + \
+		"╠❂➣ Summon\n" + \
+		"╠❂➣ Siders「on/off」\n" + \
+		"╠❂➣ Welcome「on/off」\n" + \
+		"╠❂➣ Mode:「self/public」\n" + \
+		"╠❂➣ Cekig:「ID IG」\n" + \
+		"╠❂➣ Spam:「Mid korban」「Jumlah」\n" + \
+		"╠════════════════════╗" + "\n" + \
+		" ◄]·✪PaqsyJFP✪·[►" + "\n" + \
+		"╠════════════════════╝" + "\n" + \
+		"╠════════════════════╗" + "\n" + \
+		"◄]·✪line.me/ti/p/~paqsy23✪·[►" + "\n" + \
 		"╚════════════════════╝"
 	return helpMessage
 
