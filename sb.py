@@ -12,10 +12,11 @@ client.log("Auth Token : " + str(client.authToken))
 channel = LineChannel(client)
 client.log("Channel Access Token : " + str(channel.channelAccessToken))
 
-paq = LineClient()
-paq.log("Auth Token : " + str(paq.authToken))
-channel1 = LineChannel(paq)
-paq.log("Channel Access Token : " + str(channel1.channelAccessToken))
+paq = client
+#paq = LineClient()
+#paq.log("Auth Token : " + str(paq.authToken))
+#channel1 = LineChannel(paq)
+#paq.log("Channel Access Token : " + str(channel1.channelAccessToken))
 
 poll = LinePoll(client)
 mode='self'
