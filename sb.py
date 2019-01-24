@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from linepy import *
-import json, time, random, tempfile, os, sys, pytz, requests
+import json, time, random, tempfile, os, sys, pytz, requests, urllib, urllib.parse
 from gtts import gTTS
 from googletrans import Translator
 from datetime import timedelta, date
@@ -163,13 +163,12 @@ while True:
 								elif text.lower() == "mymid":
 									client.sendMessage(msg.to, msg._from)
 								elif text.lower().startswith("cekig:"):
-									try:
-										sep = text.split(" ")
-										search = text.replace(sep[0] + " ","")
-										r = requests.get("https://www.instagram.com/{}/?__a=1".format(search))
-										data = r.text
-										data = json.loads(data)
-										if data != []:
+									sep = text.split(" ")
+									search = text.replace(sep[0] + " ","")
+									with requests.session() as web:
+										r = web.get("https://www.instagram.com/{}/?__a=1".format(search))
+										try:
+											data = json.loads(r.text)
 											ret_ = "┏━━[ Profile Instagram ]"
 											ret_ += "\n┃┃ Nama : {}".format(str(data["user"]["full_name"]))
 											ret_ += "\n┃┃ Username : {}".format(str(data["user"]["username"]))
@@ -179,10 +178,10 @@ while True:
 											ret_ += "\n┃┃ Total Post : {}".format(format_number(data["user"]["media"]["count"]))
 											ret_ += "\n┗━━[ https://www.instagram.com/{} ]".format(search)
 											path = data["user"]["profile_pic_url_hd"]
-											client.sendMessage(to, str(ret_))
 											client.sendImageWithURL(to, str(path))
-									except Exception as e:
-										client.sendMessage(msg.to, str(e))
+											client.sendMessage(to, str(ret_))
+										except Exception as e:
+											client.sendMessage(msg.to, str(e))
 								elif "info " in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
