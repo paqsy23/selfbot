@@ -8,15 +8,14 @@ from datetime import datetime
 
 
 client = LineClient()
-#client = LineClient(id='EMAIL HERE', passwd='PASSWORD HERE')
-#client = LineClient(authToken='AUTH TOKEN')
 client.log("Auth Token : " + str(client.authToken))
-
 channel = LineChannel(client)
 client.log("Channel Access Token : " + str(channel.channelAccessToken))
 
-#Setbot3 = codecs.open("wait.json","r","utf-8")
-#wait = json.load(Setbot3)
+paq = LineClient()
+paq.log("Auth Token : " + str(paq.authToken))
+channel1 = LineChannel(paq)
+paq.log("Channel Access Token : " + str(channel1.channelAccessToken))
 
 poll = LinePoll(client)
 mode='self'
@@ -26,8 +25,16 @@ cctv={
 	"sidermem":{}
 }
 
+addBots = False
+dellBots = False
+changePic = False
 limit = 1
 welcome = []
+
+mid = client.getProfile().mid
+Amid = paq.getProfile().mid
+
+Bots = [mid,Amid]
 
 def help():
 	helpMessage = "╔══════╗" + "\n" + \
@@ -150,23 +157,62 @@ while True:
 					receiver = msg.to
 					sender = msg._from
 					try:
+						if msg.contentType == 1:
+							if changePic == True:
+								path = paq.downloadObjectMsg(msg_id)
+								changePic = False
+								paq.updateProfilePicture(path)
+								paq.sendMessage(msg.to,"Foto berhasil dirubah")
+						if msg.contentType == 13:
+							if addBots == True:
+								if msg.contentMetadata["mid"] in Bots:
+									client.sendMessage(msg.to,"Contact itu sudah jadi anggota bot")
+								else:
+									Bots.append(msg.contentMetadata["mid"])
+									addBots = False
+									client.sendMessage(msg.to,"Berhasil menambahkan ke anggota bot")
+							if dellBots == True:
+								if msg.contentMetadata["mid"] in Bots:
+									Bots.remove(msg.contentMetadata["mid"])
+									client.sendMessage(msg.to,"Berhasil menghapus dari anggota bot")
+									dellBots = False
+								else:
+									client.sendMessage(msg.to,"Contact itu bukan anggota Aditmadzs BOT")
 						if msg.contentType == 0:
 							if msg.toType == 2:
 								client.sendChatChecked(receiver, msg_id)
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
+								elif text.lower() == 'bot:on':
+									addBots = True
+									client.sendMessage(msg.to,"Kirim kontaknya...")
+								elif text.lower() == 'bot:delete':
+									dellBots = True
+									client.sendMessage(msg.to,"Kirim kontaknya...")
+								elif text.lower() == "botchangepic":
+									changePic = True
+									paq.sendMessage(msg.to,"Kirim fotonya.....")
+								elif text.lower() == "respon":
+									paq.sendMessage(msg.to,"Hadir!")
 								elif text.lower() == "help":
 									helpMessage = help()
 									client.sendMessage(msg.to, str(helpMessage))
 								elif text.lower() == "mymid":
 									client.sendMessage(msg.to, msg._from)
+								elif text.lower() == "mybot":
+									msg.contentType = 13
+									msg.contentMetadata = {'mid': mid}
+									client.sendMessage1(msg)
+									msg.contentType = 13
+									msg.contentMetadata = {'mid': Amid}
+									client.sendMessage1(msg)
 								elif "info " in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
 									mi = client.getContact(key1)
-									client.sendMessage(msg.to, "➣ Nama : "+str(mi.displayName)+"\n➣ Mid : " +key1+"\n➣ Status : "+str(mi.statusMessage))
-									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
+									paq.sendMessage(msg.to, "➣ Nama : "+str(mi.displayName)+"\n➣ Mid : " +key1+"\n➣ Status : "+str(mi.statusMessage))
+									paq.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
 									if "videoProfile='{" in str(client.getContact(key1)):
 										client.sendVideoWithURL(msg.to, 'http://dl.profile.line.naver.jp'+str(mi.picturePath)+'/vp.small')
 									else:
@@ -175,8 +221,8 @@ while True:
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
 									mi = client.getContact(key1)
-									client.sendMessage(msg.to, "Nama : "+str(mi.displayName)+"\nMID : " +key1)
-									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
+									paq.sendMessage(msg.to, "Nama : "+str(mi.displayName)+"\nMID : " +key1)
+									paq.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
 								elif 'spam: ' in msg.text.lower():
 									korban = msg.text.lower().replace('spam: ','')
 									korban2 = korban.split(' ')
@@ -193,7 +239,7 @@ while True:
 										targets.append(x["M"])
 										for target in targets:
 											try:
-												client.kickoutFromGroup(msg.to, [target])
+												paq.kickoutFromGroup(msg.to, [target])
 											except:
 												pass
 								elif text.lower() == "cancelall":
@@ -206,13 +252,14 @@ while True:
 									nama = [contact.mid for contact in group.members]
 									pending = [contact.mid for contact in group.invitee]
 									myid = client.getProfile().mid
-									if myid in nama:
-										nama.remove(myid)
-									for i in range(0, len(nama)):
-										try:
+									botid = paq.getProfile().mid
+									nama.remove(myid)
+									nama.remove(botid)
+									for j in range(0, len(nama)/2):
+										for i in range(0, len(nama)/2):
 											client.kickoutFromGroup(msg.to, [nama[i]])
-										except:
-											pass
+										for i in range(len(nama)/2, len(nama)):
+											paq.kickoutFromGroup(msg.to, [nama[i]])
 									for mid in pending:
 										client.cancelGroupInvitation(msg.to, [mid])
 								elif text.lower() == 'speed':
