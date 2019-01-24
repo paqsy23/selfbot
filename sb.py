@@ -29,6 +29,120 @@ cctv={
 limit = 1
 welcome = []
 
+def help():
+	helpMessage = "╔════════════════════╗" + "\n" + \
+		" ◄]·✪·Help·✪·[►" + "\n" + \
+		"╠════════════════════╝" + "\n" + \
+		"╠❂➣ Help\n" + \
+		"╠❂➣ Me\n" + \
+		"╠❂➣ Mymid\n" + \
+		"╠❂➣ Mid「@」\n" + \
+		"╠❂➣ " + key + "Info 「@」\n" + \
+		"╠❂➣ Kick 「@」\n" + \
+		"╠❂➣ " + key + "Mybot\n" + \
+		"╠❂➣ " + key + "Status\n" + \
+		"╠❂➣ " + key + "Status translate\n" + \
+		"╠❂➣ " + key + "About\n" + \
+		"╠❂➣ " + key + "Restart\n" + \
+		"╠❂➣ " + key + "Runtime\n" + \
+		"╠❂➣ " + key + "Creator\n" + \
+		"╠❂➣ " + key + "Respon\n" + \
+		"╠❂➣ " + key + "Speed/Sp\n" + \
+		"╠❂➣ " + key + "Sprespon\n" + \
+		"╠❂➣ " + key + "Tagall\n" + \
+		"╠❂➣ " + key + "join dit\n" + \
+		"╠❂➣ " + key + "Assist join\n" + \
+		"╠❂➣ " + key + "Ginfo\n" + \
+		"╠❂➣ " + key + "Open\n" + \
+		"╠❂➣ " + key + "Close\n" + \
+		"╠❂➣ " + key + "Url grup\n" + \
+		"╠❂➣ " + key + "Reject\n" + \
+		"╠❂➣ " + key + "Gruplist\n" + \
+		"╠❂➣ " + key + "Infogrup「angka」\n" + \
+		"╠❂➣ " + key + "Infomem「angka」\n" + \
+		"╠❂➣ " + key + "Lurking「on/off」\n" + \
+		"╠❂➣ " + key + "Lurkers\n" + \
+		"╠❂➣ " + key + "Sider「on/off」\n" + \
+		"╠❂➣ " + key + "Updatefoto\n" + \
+		"╠❂➣ " + key + "Updategrup\n" + \
+		"╠❂➣ " + key + "Updatebot\n" + \
+		"╠❂➣ " + key + "Broadcast:「Text」\n" + \
+		"╠❂➣ " + key + "Setkey「New Key」\n" + \
+		"╠❂➣ " + key + "Mykey\n" + \
+		"╠❂➣ " + key + "Resetkey\n" + \
+		"╠════════════════════╗" + "\n" + \
+		" ◄]·✪·Hiburan·✪·[►" + "\n" + \
+		"╠════════════════════╝" + "\n" + \
+		"╠❂➣ " + key + "Musik:「Judul Lagu」\n" + \
+		"╠❂➣ " + key + "Musik2:「Judul Lagu」\n" + \
+		"╠❂➣ " + key + "Playlist「Nama Penyanyi」\n" + \
+		"╠❂➣ " + key + "Ytmp3:「Judul Lagu」\n" + \
+		"╠❂➣ " + key + "Ytmp4:「Judul Video\n" + \
+		"╠❂➣ " + key + "Meme@Nama@Teks1@Teks2\n" + \
+		"╠❂➣ " + key + "1cak\n" + \
+		"╠❂➣ " + key + "Profilesmule:「ID Smule」\n" + \
+		"╠❂➣ " + key + "Randomnumber:「Nmor-Nmor」\n" + \
+		"╠❂➣ " + key + "Gimage:「Keyword」\n" + \
+		"╠❂➣ " + key + "Img food:「Nama Makanan」\n" + \
+		"╠❂➣ " + key + "Cekig:「ID IG」\n" + \
+		"╠❂➣ " + key + "Profileig:「Nama IG」\n" + \
+		"╠❂➣ " + key + "Cekdate:「tgl-bln-thn」\n" + \
+		"╠❂➣ " + key + "Spamtag:「jumlahnya」\n" + \
+		"╠❂➣ " + key + "Spamtag「@」\n" + \
+		"╠❂➣ " + key + "Spamcall:「jumlahnya」\n" + \
+		"╠❂➣ " + key + "Spamcall\n" + \
+		"╠════════════════════╗" + "\n" + \
+		" ◄]·✪·Protect·✪·[►" + "\n" + \
+		"╠════════════════════╝" + "\n" + \
+		"╠❂➣ " + key + "Notag「on/off」\n" + \
+		"╠❂➣ " + key + "Allpro「on/off」\n" + \
+		"╠❂➣ " + key + "Protecturl「on/off」\n" + \
+		"╠❂➣ " + key + "Protectjoin「on/off」\n" + \
+		"╠❂➣ " + key + "Protectkick「on/off」\n" + \
+		"╠❂➣ " + key + "Protectcancel「on/off」\n" + \
+		"╠❂➣ " + key + "Protectinvite「on/off」\n" + \
+		"╠════════════════════╗" + "\n" + \
+		" ◄]·✪·Settings·✪·[►" + "\n" + \
+		"╠════════════════════╝" + "\n" + \
+		"╠❂➣ " + key + "Unsend「on/off」\n" + \
+		"╠❂➣ " + key + "Jointicket「on/off」\n" + \
+		"╠❂➣ " + key + "Sticker「on/off」\n" + \
+		"╠❂➣ " + key + "Respon「on/off」\n" + \
+		"╠❂➣ " + key + "Respongift「on/off」\n" + \
+		"╠❂➣ " + key + "Contact「on/off」\n" + \
+		"╠❂➣ " + key + "Autojoin「on/off」\n" + \
+		"╠❂➣ " + key + "Autoadd「on/off」\n" + \
+		"╠❂➣ " + key + "Welcome「on/off」\n" + \
+		"╠❂➣ " + key + "Simi「on/off」\n" + \
+		"╠❂➣ " + key + "Autoleave「on/off」\n" + \
+		"╠══════════════════════════════╗" + "\n" + \
+		"     ◄]·✪·Admin·✪·[►" + "\n" + \
+		"╠══════════════════════════════╝" + "\n" + \
+		"╠❂➣ " + key + "Admin:on\n" + \
+		"╠❂➣ " + key + "Admin:delete\n" + \
+		"╠❂➣ " + key + "Staff:on\n" + \
+		"╠❂➣ " + key + "Staff:delete\n" + \
+		"╠❂➣ " + key + "Bot:on\n" + \
+		"╠❂➣ " + key + "Bot:delete\n" + \
+		"╠❂➣ " + key + "Adminadd「@」\n" + \
+		"╠❂➣ " + key + "Admindell「@」\n" + \
+		"╠❂➣ " + key + "Staffadd「@」\n" + \
+		"╠❂➣ " + key + "Staffdell「@」\n" + \
+		"╠❂➣ " + key + "Botadd「@」\n" + \
+		"╠❂➣ " + key + "Botdell「@」\n" + \
+		"╠❂➣ " + key + "Refresh\n" + \
+		"╠❂➣ " + key + "Listbot\n" + \
+		"╠❂➣ " + key + "Listadmin\n" + \
+		"╠❂➣ " + key + "Listprotect\n" + \
+		"╠❂➣ Ketik「 Refresh 」Jika Sudah\n╠❂➣ Menggunakan Command Diatas...\n" + \
+		"╠════════════════════╗" + "\n" + \
+		" ◄]·✪Aditmadzs✪·[►" + "\n" + \
+		"╠════════════════════╝" + "\n" + \
+		"╠════════════════════╗" + "\n" + \
+		"◄]·✪line.me/ti/p/~adit_cmct✪·[►" + "\n" + \
+		"╚════════════════════╝"
+	return helpMessage
+
 def restart_program():
 	python = sys.executable
 	os.execl(python, python, * sys.argv)
@@ -129,6 +243,21 @@ while True:
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
+								elif text.lower() == "help":
+									helpMessage = help()
+									client.sendMessage(msg.to, str(helpMessage))
+								elif text.lower() == "mymid":
+									client.sendMessage(msg.to, msg._from)
+								elif "info " in msg.text.lower():
+									key = eval(msg.contentMetadata["MENTION"])
+									key1 = key["MENTIONEES"][0]["M"]
+									mi = client.getContact(key1)
+									client.sendMessage(msg.to, "➣ Nama : "+str(mi.displayName)+"\n➣ Mid : " +key1+"\n➣ Status : "+str(mi.statusMessage))
+									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
+									if "videoProfile='{" in str(aditmadzs.getContact(key1)):
+										client.sendVideoWithURL(msg.to, 'http://dl.profile.line.naver.jp'+str(mi.picturePath)+'/vp.small')
+									else:
+										client.sendImageWithURL(msg.to, 'http://dl.profile.line.naver.jp'+str(mi.picturePath))
 								elif 'mid ' in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
@@ -417,7 +546,7 @@ while True:
 							if msg.toType == 2:
 								client.sendChatChecked(receiver, msg_id)
 								contact = client.getContact(sender)
-								if text.lower() == 'mycontact':
+								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
 									client.tag(receiver, sender)
 								elif 'spic' in text.lower():
