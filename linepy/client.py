@@ -113,7 +113,10 @@ class LineClient(LineApi, LineModels, LineCall):
         return self._client.getLastOpRevision()
 
     """Message"""
-
+    @loggedIn
+    def sendMessage1(self, messageObject):
+        return self.talk.sendMessage(0,messageObject) 
+    
     @loggedIn
     def sendMessage(self, to, text, contentMetadata={}, contentType=0):
         msg = Message()
