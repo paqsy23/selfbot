@@ -30,116 +30,30 @@ limit = 1
 welcome = []
 
 def help():
-	helpMessage = "╔════════════════════╗" + "\n" + \
-		" ◄]·✪·Help·✪·[►" + "\n" + \
-		"╠════════════════════╝" + "\n" + \
-		"╠❂➣ Help\n" + \
-		"╠❂➣ Me\n" + \
-		"╠❂➣ Mymid\n" + \
-		"╠❂➣ Mid「@」\n" + \
-		"╠❂➣ " + key + "Info 「@」\n" + \
-		"╠❂➣ Kick 「@」\n" + \
-		"╠❂➣ " + key + "Mybot\n" + \
-		"╠❂➣ " + key + "Status\n" + \
-		"╠❂➣ " + key + "Status translate\n" + \
-		"╠❂➣ " + key + "About\n" + \
-		"╠❂➣ " + key + "Restart\n" + \
-		"╠❂➣ " + key + "Runtime\n" + \
-		"╠❂➣ " + key + "Creator\n" + \
-		"╠❂➣ " + key + "Respon\n" + \
-		"╠❂➣ " + key + "Speed/Sp\n" + \
-		"╠❂➣ " + key + "Sprespon\n" + \
-		"╠❂➣ " + key + "Tagall\n" + \
-		"╠❂➣ " + key + "join dit\n" + \
-		"╠❂➣ " + key + "Assist join\n" + \
-		"╠❂➣ " + key + "Ginfo\n" + \
-		"╠❂➣ " + key + "Open\n" + \
-		"╠❂➣ " + key + "Close\n" + \
-		"╠❂➣ " + key + "Url grup\n" + \
-		"╠❂➣ " + key + "Reject\n" + \
-		"╠❂➣ " + key + "Gruplist\n" + \
-		"╠❂➣ " + key + "Infogrup「angka」\n" + \
-		"╠❂➣ " + key + "Infomem「angka」\n" + \
-		"╠❂➣ " + key + "Lurking「on/off」\n" + \
-		"╠❂➣ " + key + "Lurkers\n" + \
-		"╠❂➣ " + key + "Sider「on/off」\n" + \
-		"╠❂➣ " + key + "Updatefoto\n" + \
-		"╠❂➣ " + key + "Updategrup\n" + \
-		"╠❂➣ " + key + "Updatebot\n" + \
-		"╠❂➣ " + key + "Broadcast:「Text」\n" + \
-		"╠❂➣ " + key + "Setkey「New Key」\n" + \
-		"╠❂➣ " + key + "Mykey\n" + \
-		"╠❂➣ " + key + "Resetkey\n" + \
-		"╠════════════════════╗" + "\n" + \
-		" ◄]·✪·Hiburan·✪·[►" + "\n" + \
-		"╠════════════════════╝" + "\n" + \
-		"╠❂➣ " + key + "Musik:「Judul Lagu」\n" + \
-		"╠❂➣ " + key + "Musik2:「Judul Lagu」\n" + \
-		"╠❂➣ " + key + "Playlist「Nama Penyanyi」\n" + \
-		"╠❂➣ " + key + "Ytmp3:「Judul Lagu」\n" + \
-		"╠❂➣ " + key + "Ytmp4:「Judul Video\n" + \
-		"╠❂➣ " + key + "Meme@Nama@Teks1@Teks2\n" + \
-		"╠❂➣ " + key + "1cak\n" + \
-		"╠❂➣ " + key + "Profilesmule:「ID Smule」\n" + \
-		"╠❂➣ " + key + "Randomnumber:「Nmor-Nmor」\n" + \
-		"╠❂➣ " + key + "Gimage:「Keyword」\n" + \
-		"╠❂➣ " + key + "Img food:「Nama Makanan」\n" + \
-		"╠❂➣ " + key + "Cekig:「ID IG」\n" + \
-		"╠❂➣ " + key + "Profileig:「Nama IG」\n" + \
-		"╠❂➣ " + key + "Cekdate:「tgl-bln-thn」\n" + \
-		"╠❂➣ " + key + "Spamtag:「jumlahnya」\n" + \
-		"╠❂➣ " + key + "Spamtag「@」\n" + \
-		"╠❂➣ " + key + "Spamcall:「jumlahnya」\n" + \
-		"╠❂➣ " + key + "Spamcall\n" + \
-		"╠════════════════════╗" + "\n" + \
-		" ◄]·✪·Protect·✪·[►" + "\n" + \
-		"╠════════════════════╝" + "\n" + \
-		"╠❂➣ " + key + "Notag「on/off」\n" + \
-		"╠❂➣ " + key + "Allpro「on/off」\n" + \
-		"╠❂➣ " + key + "Protecturl「on/off」\n" + \
-		"╠❂➣ " + key + "Protectjoin「on/off」\n" + \
-		"╠❂➣ " + key + "Protectkick「on/off」\n" + \
-		"╠❂➣ " + key + "Protectcancel「on/off」\n" + \
-		"╠❂➣ " + key + "Protectinvite「on/off」\n" + \
-		"╠════════════════════╗" + "\n" + \
-		" ◄]·✪·Settings·✪·[►" + "\n" + \
-		"╠════════════════════╝" + "\n" + \
-		"╠❂➣ " + key + "Unsend「on/off」\n" + \
-		"╠❂➣ " + key + "Jointicket「on/off」\n" + \
-		"╠❂➣ " + key + "Sticker「on/off」\n" + \
-		"╠❂➣ " + key + "Respon「on/off」\n" + \
-		"╠❂➣ " + key + "Respongift「on/off」\n" + \
-		"╠❂➣ " + key + "Contact「on/off」\n" + \
-		"╠❂➣ " + key + "Autojoin「on/off」\n" + \
-		"╠❂➣ " + key + "Autoadd「on/off」\n" + \
-		"╠❂➣ " + key + "Welcome「on/off」\n" + \
-		"╠❂➣ " + key + "Simi「on/off」\n" + \
-		"╠❂➣ " + key + "Autoleave「on/off」\n" + \
-		"╠══════════════════════════════╗" + "\n" + \
-		"     ◄]·✪·Admin·✪·[►" + "\n" + \
-		"╠══════════════════════════════╝" + "\n" + \
-		"╠❂➣ " + key + "Admin:on\n" + \
-		"╠❂➣ " + key + "Admin:delete\n" + \
-		"╠❂➣ " + key + "Staff:on\n" + \
-		"╠❂➣ " + key + "Staff:delete\n" + \
-		"╠❂➣ " + key + "Bot:on\n" + \
-		"╠❂➣ " + key + "Bot:delete\n" + \
-		"╠❂➣ " + key + "Adminadd「@」\n" + \
-		"╠❂➣ " + key + "Admindell「@」\n" + \
-		"╠❂➣ " + key + "Staffadd「@」\n" + \
-		"╠❂➣ " + key + "Staffdell「@」\n" + \
-		"╠❂➣ " + key + "Botadd「@」\n" + \
-		"╠❂➣ " + key + "Botdell「@」\n" + \
-		"╠❂➣ " + key + "Refresh\n" + \
-		"╠❂➣ " + key + "Listbot\n" + \
-		"╠❂➣ " + key + "Listadmin\n" + \
-		"╠❂➣ " + key + "Listprotect\n" + \
-		"╠❂➣ Ketik「 Refresh 」Jika Sudah\n╠❂➣ Menggunakan Command Diatas...\n" + \
-		"╠════════════════════╗" + "\n" + \
-		" ◄]·✪Aditmadzs✪·[►" + "\n" + \
-		"╠════════════════════╝" + "\n" + \
-		"╠════════════════════╗" + "\n" + \
-		"◄]·✪line.me/ti/p/~adit_cmct✪·[►" + "\n" + \
+	helpMessage = "╔════════════════════╗" + "\n" + 
+		" ◄]·✪·Help·✪·[►" + "\n" + 
+		"╠════════════════════╝" + "\n" + 
+		"╠❂➣ Help\n" + 
+		"╠❂➣ Me\n" + 
+		"╠❂➣ Mymid\n" + 
+		"╠❂➣ Mid「@」\n" + 
+		"╠❂➣ Info 「@」\n" + 
+		"╠❂➣ Kick 「@」\n" + 
+		"╠❂➣ Flush \n" +
+		"╠❂➣ Cancelall \n" +
+		"╠❂➣ Restart\n" + 
+		"╠❂➣ Speed\n" +
+		"╠❂➣ Summon\n" + 
+		"╠❂➣ Siders「on/off」\n" +
+		"╠❂➣ Welcome「on/off」\n" +
+		"╠❂➣ Mode:「self/public」\n" +
+		"╠❂➣ Cekig:「ID IG」\n" +
+		"╠❂➣ Spam:「Mid korban」「Jumlah」\n" + 
+		"╠════════════════════╗" + "\n" +
+		" ◄]·✪PaqsyJFP✪·[►" + "\n" +
+		"╠════════════════════╝" + "\n" +
+		"╠════════════════════╗" + "\n" +
+		"◄]·✪line.me/ti/p/~paqsy23✪·[►" + "\n" +
 		"╚════════════════════╝"
 	return helpMessage
 
@@ -248,13 +162,34 @@ while True:
 									client.sendMessage(msg.to, str(helpMessage))
 								elif text.lower() == "mymid":
 									client.sendMessage(msg.to, msg._from)
+								elif text.lower().startswith("cekig:"):
+								try:
+									sep = text.split(" ")
+									search = text.replace(sep[0] + " ","")
+									r = requests.get("https://www.instagram.com/{}/?__a=1".format(search))
+									data = r.text
+									data = json.loads(data)
+									if data != []:
+										ret_ = "┏━━[ Profile Instagram ]"
+										ret_ += "\n┃┃ Nama : {}".format(str(data["user"]["full_name"]))
+										ret_ += "\n┃┃ Username : {}".format(str(data["user"]["username"]))
+										ret_ += "\n┃┃ Bio : {}".format(str(data["user"]["biography"]))
+										ret_ += "\n┃┃ Pengikut : {}".format(format_number(data["user"]["followed_by"]["count"]))
+										ret_ += "\n┃┃ Diikuti : {}".format(format_number(data["user"]["follows"]["count"]))
+										ret_ += "\n┃┃ Total Post : {}".format(format_number(data["user"]["media"]["count"]))
+										ret_ += "\n┗━━[ https://www.instagram.com/{} ]".format(search)
+										path = data["user"]["profile_pic_url_hd"]
+										client.sendMessage(to, str(ret_))
+										client.sendImageWithURL(to, str(path))
+								except Exception as e:
+									client.sendMessage(msg.to, str(e))
 								elif "info " in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
 									mi = client.getContact(key1)
 									client.sendMessage(msg.to, "➣ Nama : "+str(mi.displayName)+"\n➣ Mid : " +key1+"\n➣ Status : "+str(mi.statusMessage))
 									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
-									if "videoProfile='{" in str(aditmadzs.getContact(key1)):
+									if "videoProfile='{" in str(client.getContact(key1)):
 										client.sendVideoWithURL(msg.to, 'http://dl.profile.line.naver.jp'+str(mi.picturePath)+'/vp.small')
 									else:
 										client.sendImageWithURL(msg.to, 'http://dl.profile.line.naver.jp'+str(mi.picturePath))
@@ -549,25 +484,15 @@ while True:
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
 									client.tag(receiver, sender)
-								elif 'spic' in text.lower():
-									try:
-										key = eval(msg.contentMetadata["MENTION"])
-										u = key["MENTIONEES"][0]["M"]
-										a = client.getContact(u).pictureStatus
-										if client.getContact(u).videoProfile != None:
-											client.sendVideoWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a+'/vp.small')
-										else:
-											client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a)
-									except Exception as e:
-										client.sendText(receiver, str(e))
-								elif 'scover' in text.lower():
-									try:
-										key = eval(msg.contentMetadata["MENTION"])
-										u = key["MENTIONEES"][0]["M"]
-										a = channel.getProfileCoverURL(mid=u)
-										client.sendImageWithURL(receiver, a)
-									except Exception as e:
-										client.sendText(receiver, str(e))
+								elif text.lower() == "help":
+									helpMessage = help()
+									client.sendMessage(msg.to, str(helpMessage))
+								elif 'mid ' in msg.text.lower():
+									key = eval(msg.contentMetadata["MENTION"])
+									key1 = key["MENTIONEES"][0]["M"]
+									mi = client.getContact(key1)
+									client.sendMessage(msg.to, "Nama : "+str(mi.displayName)+"\nMID : " +key1)
+									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
 								elif text.lower() == 'summon':
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
