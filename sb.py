@@ -47,7 +47,6 @@ def help():
 		"╠❂➣ Siders「on/off」\n" + \
 		"╠❂➣ Welcome「on/off」\n" + \
 		"╠❂➣ Mode:「self/public」\n" + \
-		"╠❂➣ Cekig:「ID IG」\n" + \
 		"╠❂➣ Spam:「Mid korban」「Jumlah」\n" + \
 		"╠══════╗" + "\n" + \
 		" ◄]·✪PaqsyJFP✪·[►" + "\n" + \
@@ -162,26 +161,6 @@ while True:
 									client.sendMessage(msg.to, str(helpMessage))
 								elif text.lower() == "mymid":
 									client.sendMessage(msg.to, msg._from)
-								elif text.lower().startswith("cekig:"):
-									sep = text.split(" ")
-									search = text.replace(sep[0] + " ","")
-									with requests.session() as web:
-										r = web.get("https://www.instagram.com/{}/?__a=1".format(search))
-										try:
-											data = json.loads(r.text)
-											ret_ = "┏━━[ Profile Instagram ]"
-											ret_ += "\n┃┃ Nama : {}".format(str(data["user"]["full_name"]))
-											ret_ += "\n┃┃ Username : {}".format(str(data["user"]["username"]))
-											ret_ += "\n┃┃ Bio : {}".format(str(data["user"]["biography"]))
-											ret_ += "\n┃┃ Pengikut : {}".format(format_number(data["user"]["followed_by"]["count"]))
-											ret_ += "\n┃┃ Diikuti : {}".format(format_number(data["user"]["follows"]["count"]))
-											ret_ += "\n┃┃ Total Post : {}".format(format_number(data["user"]["media"]["count"]))
-											ret_ += "\n┗━━[ https://www.instagram.com/{} ]".format(search)
-											path = data["user"]["profile_pic_url_hd"]
-											client.sendImageWithURL(to, str(path))
-											client.sendMessage(to, str(ret_))
-										except Exception as e:
-											client.sendMessage(msg.to, str(e))
 								elif "info " in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
