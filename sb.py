@@ -31,11 +31,6 @@ changePic = False
 limit = 1
 welcome = []
 
-mid = client.getProfile().mid
-Amid = paq.getProfile().mid
-
-Bots = [mid,Amid]
-
 def help():
 	helpMessage = "╔══════╗" + "\n" + \
 		" ◄]·✪·Help·✪·[►" + "\n" + \
@@ -143,6 +138,10 @@ while True:
 	try:
 		ops=poll.singleTrace(count=50)
 		if ops != None:
+			mid = client.getProfile().mid
+			Amid = paq.getProfile().mid
+
+			Bots = [mid,Amid]
 			for op in ops:
 				if op.type == 15:
 					if op.param1 in welcome:
