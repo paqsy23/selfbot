@@ -129,6 +129,28 @@ while True:
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
+								elif text.lower().startswith("spamcall: "):
+									proses = text.split(":")
+									strnum = text.replace(proses[0] + ": ","")
+									num =  int(strnum)
+									limit = num
+									client.sendMessage(msg.to,"Total Spamcall Diubah Menjadi " +strnum)
+								elif text.lower() == "spamcall":
+									group = client.getGroup(msg.to)
+									members = [contact.mid for contact in group.members]
+									total = [contact.mid for contact in group.members]
+									jmlh = int(limit)
+									if jmlh <= 1000:
+										for x in range(jmlh):
+											try:
+												client.acquireGroupCallRoute(msg.to)
+												for mem in total
+													client.inviteIntoGroupCall(mem[x].mid, contactIds=members)
+											except Exception as e:
+												client.sendMessage(msg.to,str(e))
+										client.sendMessage(msg.to, "Berhasil mengundang {} undangan Call Grup".format(str(limit)))
+									else:
+										client.sendMessage(msg.to,"Jumlah melebihi batas")
 								elif 'mid ' in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
