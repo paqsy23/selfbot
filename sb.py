@@ -163,26 +163,26 @@ while True:
 								elif text.lower() == "mymid":
 									client.sendMessage(msg.to, msg._from)
 								elif text.lower().startswith("cekig:"):
-								try:
-									sep = text.split(" ")
-									search = text.replace(sep[0] + " ","")
-									r = requests.get("https://www.instagram.com/{}/?__a=1".format(search))
-									data = r.text
-									data = json.loads(data)
-									if data != []:
-										ret_ = "┏━━[ Profile Instagram ]"
-										ret_ += "\n┃┃ Nama : {}".format(str(data["user"]["full_name"]))
-										ret_ += "\n┃┃ Username : {}".format(str(data["user"]["username"]))
-										ret_ += "\n┃┃ Bio : {}".format(str(data["user"]["biography"]))
-										ret_ += "\n┃┃ Pengikut : {}".format(format_number(data["user"]["followed_by"]["count"]))
-										ret_ += "\n┃┃ Diikuti : {}".format(format_number(data["user"]["follows"]["count"]))
-										ret_ += "\n┃┃ Total Post : {}".format(format_number(data["user"]["media"]["count"]))
-										ret_ += "\n┗━━[ https://www.instagram.com/{} ]".format(search)
-										path = data["user"]["profile_pic_url_hd"]
-										client.sendMessage(to, str(ret_))
-										client.sendImageWithURL(to, str(path))
-								except Exception as e:
-									client.sendMessage(msg.to, str(e))
+									try:
+										sep = text.split(" ")
+										search = text.replace(sep[0] + " ","")
+										r = requests.get("https://www.instagram.com/{}/?__a=1".format(search))
+										data = r.text
+										data = json.loads(data)
+										if data != []:
+											ret_ = "┏━━[ Profile Instagram ]"
+											ret_ += "\n┃┃ Nama : {}".format(str(data["user"]["full_name"]))
+											ret_ += "\n┃┃ Username : {}".format(str(data["user"]["username"]))
+											ret_ += "\n┃┃ Bio : {}".format(str(data["user"]["biography"]))
+											ret_ += "\n┃┃ Pengikut : {}".format(format_number(data["user"]["followed_by"]["count"]))
+											ret_ += "\n┃┃ Diikuti : {}".format(format_number(data["user"]["follows"]["count"]))
+											ret_ += "\n┃┃ Total Post : {}".format(format_number(data["user"]["media"]["count"]))
+											ret_ += "\n┗━━[ https://www.instagram.com/{} ]".format(search)
+											path = data["user"]["profile_pic_url_hd"]
+											client.sendMessage(to, str(ret_))
+											client.sendImageWithURL(to, str(path))
+									except Exception as e:
+										client.sendMessage(msg.to, str(e))
 								elif "info " in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
