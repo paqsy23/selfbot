@@ -12,11 +12,11 @@ client.log("Auth Token : " + str(client.authToken))
 channel = LineChannel(client)
 client.log("Channel Access Token : " + str(channel.channelAccessToken))
 
-paq = client
+paq = LineClient(id='paqsy23@gmail.com', passwd='rengginang23')
 #paq = LineClient()
-#paq.log("Auth Token : " + str(paq.authToken))
-#channel1 = LineChannel(paq)
-#paq.log("Channel Access Token : " + str(channel1.channelAccessToken))
+paq.log("Auth Token : " + str(paq.authToken))
+channel1 = LineChannel(paq)
+paq.log("Channel Access Token : " + str(channel1.channelAccessToken))
 
 poll = LinePoll(client)
 mode='self'
@@ -31,7 +31,9 @@ dellBots = False
 changePic = False
 limit = 1
 welcome = []
-Bots = []
+mid = client.getProfile().mid
+Amid = paq.getProfile().mid
+Bots = [mid, Amid]
 
 def help():
 	helpMessage = "╔══════╗" + "\n" + \
@@ -141,6 +143,11 @@ while True:
 		ops=poll.singleTrace(count=50)
 		if ops != None:
 			for op in ops:
+				if op.type == 13:
+					if Amid in op.param3:
+						paq.acceptGroupInvitation(op.param1)
+						ginfo = paq.getGroup(op.param1)
+						paq.sendMessage(op.param1,"Hai " + str(ginfo.name))
 				if op.type == 15:
 					if op.param1 in welcome:
 						leaveMembers(op.param1, [op.param2])
@@ -183,7 +190,6 @@ while True:
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
 								elif text.lower() == 'bot:on':
 									addBots = True
-									Bots.append(client.getProfile().mid)
 									client.sendMessage(msg.to,"Kirim kontaknya...")
 								elif text.lower() == 'bot:delete':
 									dellBots = True
