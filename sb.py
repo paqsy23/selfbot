@@ -252,7 +252,10 @@ while True:
 									myid = client.getProfile().mid
 									nama.remove(myid)
 									for i in nama:
-										client.kickoutFromGroup(msg.to, [i])
+										try:
+											client.kickoutFromGroup(msg.to, [i])
+										except:
+											pass
 									for mid in pending:
 										client.cancelGroupInvitation(msg.to, [mid])
 								elif text.lower() == 'speed':
