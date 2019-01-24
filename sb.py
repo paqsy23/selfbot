@@ -253,11 +253,13 @@ while True:
 									botid = paq.getProfile().mid
 									nama.remove(myid)
 									nama.remove(botid)
+									temp = len(nama)
 									for j in range(0, len(nama)/2):
-										for i in range(0, len(nama)/2):
-											client.kickoutFromGroup(msg.to, [nama[i]])
-										for i in range(len(nama)/2, len(nama)):
-											paq.kickoutFromGroup(msg.to, [nama[i]])
+										if temp == j:
+											client.kickoutFromGroup(msg.to, [nama[j]])
+										else:
+											client.kickoutFromGroup(msg.to, [nama[j]])
+											paq.kickoutFromGroup(msg.to, [nama[temp]])
 									for mid in pending:
 										client.cancelGroupInvitation(msg.to, [mid])
 								elif text.lower() == 'speed':
