@@ -75,7 +75,7 @@ def leaveMembers(to, mid):
 			arrData = {'S':slen, 'E':elen, 'M':i}
 			arr.append(arrData)
 			textx += mention + "baper :("
-		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		paq.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
 		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 	
@@ -92,7 +92,7 @@ def welcomeMembers(to, mid):
 			arrData = {'S':slen, 'E':elen, 'M':i}
 			arr.append(arrData)
 			textx += mention+"Selamat datang di group "+str(ginfo.name)+"\nJangan lupa follow ig @paqsy23 yaa\nAuto follback kok"
-		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		paq.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
 		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
@@ -115,7 +115,7 @@ def mentionMembers(to, mid):
 				textx += "❂➣ "
 			else:
 				pass
-		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		paq.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
 		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 	
@@ -131,7 +131,7 @@ def siderMembers(to, mid):
 			arrData = {'S':slen, 'E':elen, 'M':i}
 			arr.append(arrData)
 			textx += mention + "Ikut nimbrung gih"
-		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		paq.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
 		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
@@ -141,10 +141,9 @@ while True:
 		if ops != None:
 			for op in ops:
 				if op.type == 13:
-					if op.param2 in Bots:
-						ginfo = paq.getGroup(op.param1)
-						paq.acceptGroupInvitation(op.param1)
-						paq.sendMessage(op.param1,"Bot already on!")
+					ginfo = paq.getGroup(op.param1)
+					paq.acceptGroupInvitation(op.param1)
+					paq.sendMessage(op.param1,"Bot already on!")
 				if op.type == 15:
 					if op.param1 in welcome:
 						leaveMembers(op.param1, [op.param2])
@@ -188,10 +187,6 @@ while True:
 									mi = client.getContact(key1)
 									paq.sendMessage(msg.to, "➣ Nama : "+str(mi.displayName)+"\n➣ Mid : " +key1+"\n➣ Status : "+str(mi.statusMessage))
 									paq.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
-									if "videoProfile='{" in str(client.getContact(key1)):
-										client.sendVideoWithURL(msg.to, 'http://dl.profile.line.naver.jp'+str(mi.picturePath)+'/vp.small')
-									else:
-										client.sendImageWithURL(msg.to, 'http://dl.profile.line.naver.jp'+str(mi.picturePath))
 								elif 'mid ' in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
@@ -227,10 +222,12 @@ while True:
 									nama = [contact.mid for contact in group.members]
 									pending = [contact.mid for contact in group.invitee]
 									myid = client.getProfile().mid
+									botid = paq.getProfile().mid
 									nama.remove(myid)
+									nama.remove(botid)
 									for i in nama:
 										try:
-											client.kickoutFromGroup(msg.to, [i])
+											paq.kickoutFromGroup(msg.to, [i])
 										except:
 											pass
 									for mid in pending:
