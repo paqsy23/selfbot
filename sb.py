@@ -140,7 +140,7 @@ while True:
 		ops=poll.singleTrace(count=50)
 		if ops != None:
 			for op in ops:
-				if op.type == 13:
+				if op.type == 13 and Amid in op.param2:
 					ginfo = paq.getGroup(op.param1)
 					paq.acceptGroupInvitation(op.param1)
 					paq.sendMessage(op.param1,"Bot already on!")
@@ -171,6 +171,10 @@ while True:
 										client.inviteIntoGroup(msg.to,[Amid])
 									else:
 										paq.sendMessage(msg.to,"Bot already on!")
+								elif text.lower() == 'babay':
+									group = paq.getGroup(receiver)
+									paq.sendMessage(msg.to, "Bye, grup " + str(group.name))
+									paq.leaveGroup(msg.to)
 								elif text.lower() == "respon":
 									paq.sendMessage(msg.to,"Hadir!")
 								elif text.lower() == "help":
@@ -221,13 +225,15 @@ while True:
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
 									pending = [contact.mid for contact in group.invitee]
-									myid = client.getProfile().mid
 									botid = paq.getProfile().mid
+									myid = client.getProfile().mid
 									nama.remove(myid)
-									nama.remove(botid)
 									for i in nama:
 										try:
-											paq.kickoutFromGroup(msg.to, [i])
+											if botid in nama:
+												paq.kickoutFromGroup(msg.to, [i])
+											else:
+												client.kickoutFromGroup(msg.to, [i])
 										except:
 											pass
 									for mid in pending:
