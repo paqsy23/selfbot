@@ -19,7 +19,6 @@ channel1 = LineChannel(paq)
 paq.log("Channel Access Token : " + str(channel1.channelAccessToken))
 
 poll = LinePoll(client)
-mode='self'
 cctv={
 	"cyduk":{},
 	"point":{},
@@ -33,30 +32,25 @@ Amid = paq.getProfile().mid
 Bots = [mid, Amid]
 
 def help():
-	helpMessage = "╔══════╗" + "\n" + \
-		" ◄]·✪·Help·✪·[►" + "\n" + \
-		"╠══════╝" + "\n" + \
-		"╠❂➣ Help\n" + \
-		"╠❂➣ Me\n" + \
-		"╠❂➣ Mymid\n" + \
-		"╠❂➣ Mid「@」\n" + \
-		"╠❂➣ Info 「@」\n" + \
-		"╠❂➣ Kick 「@」\n" + \
-		"╠❂➣ Flush \n" + \
-		"╠❂➣ Cancelall \n" + \
-		"╠❂➣ Restart\n" + \
-		"╠❂➣ Speed\n" + \
-		"╠❂➣ Summon\n" + \
-		"╠❂➣ Siders「on/off」\n" + \
-		"╠❂➣ Welcome「on/off」\n" + \
-		"╠❂➣ Mode:「self/public」\n" + \
-		"╠❂➣ Spam:「Mid korban」「Jumlah」\n" + \
-		"╠══════╗" + "\n" + \
-		" ◄]·✪PaqsyJFP✪·[►" + "\n" + \
-		"╠══════╝" + "\n" + \
-		"╠══════╗" + "\n" + \
-		"◄]·✪line.me/ti/p/~paqsy23✪·[►" + "\n" + \
-		"╚══════╝"
+	helpMessage = " [ Help ]" + "\n" + \
+		"➣ Help\n" + \
+		"➣ Me\n" + \
+		"➣ Mymid\n" + \
+		"➣ Mybot \n" + \
+		"➣ Join bot \n" + \
+		"➣ Babay \n" + \
+		"➣ Respon \n" + \
+		"➣ Mid「@」\n" + \
+		"➣ Info 「@」\n" + \
+		"➣ Kick 「@」\n" + \
+		"➣ Flush \n" + \
+		"➣ Cancelall \n" + \
+		"➣ Restart\n" + \
+		"➣ Speed\n" + \
+		"➣ Summon\n" + \
+		"➣ Siders「on/off」\n" + \
+		"➣ Welcome「on/off」\n" + \
+		"➣ Spam:「Mid korban」「Jumlah」"
 	return helpMessage
 
 def restart_program():
@@ -75,7 +69,7 @@ def leaveMembers(to, mid):
 			arrData = {'S':slen, 'E':elen, 'M':i}
 			arr.append(arrData)
 			textx += mention + "baper :("
-		paq.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
 		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 	
@@ -92,7 +86,7 @@ def welcomeMembers(to, mid):
 			arrData = {'S':slen, 'E':elen, 'M':i}
 			arr.append(arrData)
 			textx += mention+"Selamat datang di group "+str(ginfo.name)+"\nJangan lupa follow ig @paqsy23 yaa\nAuto follback kok"
-		paq.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
 		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
@@ -115,7 +109,7 @@ def mentionMembers(to, mid):
 				textx += "❂➣ "
 			else:
 				pass
-		paq.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
 		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 	
@@ -131,7 +125,7 @@ def siderMembers(to, mid):
 			arrData = {'S':slen, 'E':elen, 'M':i}
 			arr.append(arrData)
 			textx += mention + "Ikut nimbrung gih"
-		paq.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
 		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
@@ -181,7 +175,6 @@ while True:
 								elif text.lower() == "mymid":
 									client.sendMessage(msg.to, msg._from)
 								elif text.lower() == "mybot":
-									client.sendMessage(receiver, None, contentMetadata={'mid': mid}, contentType=13)
 									client.sendMessage(receiver, None, contentMetadata={'mid': Amid}, contentType=13)
 								elif "info " in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
@@ -211,7 +204,7 @@ while True:
 										targets.append(x["M"])
 										for target in targets:
 											try:
-												paq.kickoutFromGroup(msg.to, [target])
+												client.kickoutFromGroup(msg.to, [target])
 											except:
 												pass
 								elif text.lower() == "cancelall":
@@ -439,12 +432,6 @@ while True:
 										client.sendText(msg.to, "Cek sider dinonaktifkan\n\nTanggal : "+ datetime.strftime(timeNow,'%Y-%m-%d')+"\nJam [ "+ datetime.strftime(timeNow,'%H:%M:%S')+" ]")
 									else:
 										client.sendText(msg.to, "Cek sider sudah nonaktif")
-								elif text.lower() == 'mode:self':
-									mode = 'self'
-									client.sendText(receiver, 'Mode Public Off')
-								elif text.lower() == 'mode:public':
-									mode = 'public'
-									client.sendText(receiver, 'Mode Public ON')
 								elif text.lower() == 'restart':
 									restart_program()
 								elif 'welcome ' in msg.text.lower():
@@ -469,7 +456,7 @@ while True:
 					except Exception as e:
 						client.log("[SEND_MESSAGE] ERROR : " + str(e))
 	#=========================================================================================================================================#
-				elif mode == 'public' and op.type == 26:
+				elif op.type == 26:
 					msg = op.message
 					text = msg.text
 					msg_id = msg.id
