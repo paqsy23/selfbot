@@ -142,10 +142,11 @@ while True:
 			for op in ops:
 				if op.type == 13:
 					if Amid in op.param3:
-						client.sendMessage(op.message.to, "tes")
-						paq.acceptGroupInvitation(paq.getGroupIdsInvited())
-						ginfo = paq.getGroup(op.message.to)
-						paq.sendMessage(op.message.to,"Bot already on!")
+						print(Amid)
+						if op.param2 in Bots:
+							paq.acceptGroupInvitation(op.param1)
+							ginfo = paq.getGroup(op.param1)
+							paq.sendMessage(op.param1,"Bot already on!")
 				if op.type == 15:
 					if op.param1 in welcome:
 						leaveMembers(op.param1, [op.param2])
