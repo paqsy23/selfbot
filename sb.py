@@ -166,6 +166,7 @@ while True:
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
 								elif text.lower() == 'bot:on':
+									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
 									if Amid not in nama:
 										client.inviteIntoGroup(msg.to,[Amid])
