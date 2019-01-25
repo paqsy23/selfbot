@@ -26,9 +26,6 @@ cctv={
 	"sidermem":{}
 }
 
-addBots = False
-dellBots = False
-changePic = False
 limit = 1
 welcome = []
 mid = client.getProfile().mid
@@ -147,7 +144,7 @@ while True:
 					if Amid in op.param3:
 						paq.acceptGroupInvitation(op.param1)
 						ginfo = paq.getGroup(op.param1)
-						paq.sendMessage(op.param1,"Hai " + str(ginfo.name))
+						paq.sendMessage(op.param1,"Bot already on!")
 				if op.type == 15:
 					if op.param1 in welcome:
 						leaveMembers(op.param1, [op.param2])
@@ -161,27 +158,6 @@ while True:
 					receiver = msg.to
 					sender = msg._from
 					try:
-						if msg.contentType == 1:
-							if changePic == True:
-								path = paq.downloadObjectMsg(msg_id)
-								changePic = False
-								paq.updateProfilePicture(path)
-								paq.sendMessage(msg.to,"Foto berhasil dirubah")
-						if msg.contentType == 13:
-							if addBots == True:
-								if msg.contentMetadata["mid"] in Bots:
-									client.sendMessage(msg.to,"Contact itu sudah jadi anggota bot")
-								else:
-									Bots.append(msg.contentMetadata["mid"])
-									addBots = False
-									client.sendMessage(msg.to,"Berhasil menambahkan ke anggota bot")
-							if dellBots == True:
-								if msg.contentMetadata["mid"] in Bots:
-									Bots.remove(msg.contentMetadata["mid"])
-									client.sendMessage(msg.to,"Berhasil menghapus dari anggota bot")
-									dellBots = False
-								else:
-									client.sendMessage(msg.to,"Contact itu bukan anggota Aditmadzs BOT")
 						if msg.contentType == 0:
 							if msg.toType == 2:
 								client.sendChatChecked(receiver, msg_id)
@@ -189,14 +165,7 @@ while True:
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
 								elif text.lower() == 'bot:on':
-									addBots = True
-									client.sendMessage(msg.to,"Kirim kontaknya...")
-								elif text.lower() == 'bot:delete':
-									dellBots = True
-									client.sendMessage(msg.to,"Kirim kontaknya...")
-								elif text.lower() == "botchangepic":
-									changePic = True
-									paq.sendMessage(msg.to,"Kirim fotonya.....")
+									client.inviteIntoGroup(op.param1,[Amid])
 								elif text.lower() == "respon":
 									paq.sendMessage(msg.to,"Hadir!")
 								elif text.lower() == "help":
