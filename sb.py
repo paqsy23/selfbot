@@ -142,7 +142,8 @@ while True:
 			for op in ops:
 				if op.type == 13:
 					if Amid in op.param3:
-						paq.acceptGroupInvitation(op.param1)
+						client.sendMessage(op.message.to, "tes")
+						paq.acceptGroupInvitation(paq.getGroupIdsInvited())
 						ginfo = paq.getGroup(op.message.to)
 						paq.sendMessage(op.message.to,"Bot already on!")
 				if op.type == 15:
