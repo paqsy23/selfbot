@@ -159,7 +159,7 @@ while True:
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-								elif text.lower() == 'bot:on':
+								elif text.lower() == 'join bot':
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
 									if Amid not in nama:
