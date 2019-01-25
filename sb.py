@@ -140,7 +140,8 @@ while True:
 		ops=poll.singleTrace(count=50)
 		if ops != None:
 			for op in ops:
-				if op.type == 13 and Amid in op.param2:
+				if op.type == 13:
+					print("HELLO")
 					ginfo = paq.getGroup(op.param1)
 					paq.acceptGroupInvitation(op.param1)
 					paq.sendMessage(op.param1,"Bot already on!")
