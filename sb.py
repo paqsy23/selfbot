@@ -141,7 +141,7 @@ while True:
 		if ops != None:
 			for op in ops:
 				if op.type == 13:
-					if Amid in op.param3:
+					if mid in op.param3:
 						if op.param2 in Bots:
 							ginfo = paq.getGroup(op.param1)
 							paq.acceptGroupInvitation(op.param1)
