@@ -140,11 +140,6 @@ while True:
 		ops=poll.singleTrace(count=50)
 		if ops != None:
 			for op in ops:
-				if op.type == 13:
-					print("HELLO")
-					ginfo = paq.getGroup(op.param1)
-					paq.acceptGroupInvitation(op.param1)
-					paq.sendMessage(op.param1,"Bot already on!")
 				if op.type == 15:
 					if op.param1 in welcome:
 						leaveMembers(op.param1, [op.param2])
@@ -170,8 +165,10 @@ while True:
 									if Amid not in nama:
 										client.sendMessage(msg.to, Amid)
 										client.inviteIntoGroup(msg.to,[Amid])
-									else:
+										paq.acceptGroupInvitation(msg.to)
 										paq.sendMessage(msg.to,"Bot already on!")
+									else:
+										paq.sendMessage(msg.to,"Bot lu disini goblog!")
 								elif text.lower() == 'babay':
 									group = paq.getGroup(receiver)
 									paq.sendMessage(msg.to, "Bye, grup " + str(group.name))
