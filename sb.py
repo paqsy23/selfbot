@@ -141,8 +141,7 @@ while True:
 		if ops != None:
 			for op in ops:
 				if op.type == 13:
-					if op.param3 in Amid:
-						print(Amid)
+					if Amid in op.param3:
 						if op.param2 in Bots:
 							ginfo = paq.getGroup(op.param1)
 							paq.acceptGroupInvitation(op.param1)
@@ -170,6 +169,7 @@ while True:
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
 									if Amid not in nama:
+										client.sendMessage(msg.to, Amid)
 										client.inviteIntoGroup(msg.to,[Amid])
 									else:
 										paq.sendMessage(msg.to,"Bot already on!")
@@ -181,12 +181,8 @@ while True:
 								elif text.lower() == "mymid":
 									client.sendMessage(msg.to, msg._from)
 								elif text.lower() == "mybot":
-									msg.contentType = 13
-									msg.contentMetadata = {'mid': mid}
-									client.sendMessage1(msg)
-									msg.contentType = 13
-									msg.contentMetadata = {'mid': Amid}
-									client.sendMessage1(msg)
+									client.sendMessage(receiver, None, contentMetadata={'mid': mid}, contentType=13)
+									client.sendMessage(receiver, None, contentMetadata={'mid': Amid}, contentType=13)
 								elif "info " in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
