@@ -143,8 +143,8 @@ while True:
 				if op.type == 13:
 					if Amid in op.param3:
 						paq.acceptGroupInvitation(op.param1)
-						ginfo = paq.getGroup(op.param1)
-						paq.sendMessage(op.param1,"Bot already on!")
+						ginfo = paq.getGroup(op.message.to)
+						paq.sendMessage(op.message.to,"Bot already on!")
 				if op.type == 15:
 					if op.param1 in welcome:
 						leaveMembers(op.param1, [op.param2])
@@ -165,7 +165,11 @@ while True:
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
 								elif text.lower() == 'bot:on':
-									client.inviteIntoGroup(op.param1,[Amid])
+									nama = [contact.mid for contact in group.members]
+									if Amid not in nama:
+										client.inviteIntoGroup(msg.to,[Amid])
+									else:
+										paq.sendMessage(msg.to,"Bot already on!")
 								elif text.lower() == "respon":
 									paq.sendMessage(msg.to,"Hadir!")
 								elif text.lower() == "help":
