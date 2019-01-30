@@ -40,10 +40,9 @@ def help():
 		"➣ Mid「@」\n" + \
 		"➣ Info 「@」\n" + \
 		"➣ Cancelall \n" + \
-		"➣ Speed\n" + \
-		"➣ Summon\n" + \
-		"➣ Siders「on/off」\n" + \
-		"➣ Welcome「on/off」\n"
+		"➣ Tagall\n" + \
+		"➣ Sider「on/off」\n" + \
+		"➣ Welcome「on/off」"
 	return helpMessage
 
 def restart_program():
@@ -408,7 +407,7 @@ while True:
 										for r in range(180, len(nama)):
 											nm10 += [nama[r]]
 										mentionMembers(receiver, nm10)
-								elif text.lower() == 'siders on':
+								elif text.lower() == 'sider on':
 									try:
 										tz = pytz.timezone("Asia/Jakarta")
 										timeNow = datetime.now(tz=tz)
@@ -421,7 +420,7 @@ while True:
 									cctv['point'][receiver] = msg.id
 									cctv['sidermem'][receiver] = ""
 									cctv['cyduk'][receiver]=True
-								elif text.lower() == 'siders off':
+								elif text.lower() == 'sider off':
 									if msg.to in cctv['point']:
 										cctv['cyduk'][receiver]=False
 										tz = pytz.timezone("Asia/Jakarta")
