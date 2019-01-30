@@ -215,7 +215,7 @@ while True:
 									myid = client.getProfile().mid
 									nama.remove(myid)
 									i = int(0)
-									while nama is not None:
+									while nama.count() >= 0:
 										try:
 											paq.kickoutFromGroup(msg.to, [nama[i]])
 											i += 1
