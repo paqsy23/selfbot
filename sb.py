@@ -43,7 +43,7 @@ def help():
 		"➣ Speed\n" + \
 		"➣ Summon\n" + \
 		"➣ Siders「on/off」\n" + \
-		"➣ Welcome「on/off」\n" + \
+		"➣ Welcome「on/off」\n"
 	return helpMessage
 
 def restart_program():
