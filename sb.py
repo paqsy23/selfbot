@@ -55,7 +55,7 @@ def leaveMembers(to, mid):
 		textx = "Yahh, si "
 		arr = []
 		for i in mid:
-			mention = "@paq23 "
+			mention = "@kimak "
 			slen = str(len(textx))
 			elen = str(len(textx) + len(mention) - 1)
 			arrData = {'S':slen, 'E':elen, 'M':i}
@@ -72,7 +72,7 @@ def welcomeMembers(to, mid):
 		arr = []
 		ginfo = client.getGroup(to)
 		for i in mid:
-			mention = "@paq23\n"
+			mention = "@kimak\n"
 			slen = str(len(textx))
 			elen = str(len(textx) + len(mention) - 1)
 			arrData = {'S':slen, 'E':elen, 'M':i}
@@ -90,7 +90,7 @@ def mentionMembers(to, mid):
 		no = 1
 		num = 2
 		for i in mid:
-			mention = "@paq23\n"
+			mention = "@kimak\n"
 			slen = str(len(textx))
 			elen = str(len(textx) + len(mention) - 1)
 			arrData = {'S':slen, 'E':elen, 'M':i}
@@ -108,10 +108,10 @@ def mentionMembers(to, mid):
 def siderMembers(to, mid):
 	try:
 		arrData = ""
-		textx = "Haii kak "
+		textx = "Haii "
 		arr = []
 		for i in mid:
-			mention = "@paq23\n"
+			mention = "@kimak\n"
 			slen = str(len(textx))
 			elen = str(len(textx) + len(mention) - 1)
 			arrData = {'S':slen, 'E':elen, 'M':i}
@@ -145,7 +145,7 @@ while True:
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
 									paq.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-								elif text.lower() == 'join bot':
+								elif text.lower() == 'join':
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
 									if Amid not in nama:
