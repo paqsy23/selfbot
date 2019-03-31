@@ -143,7 +143,6 @@ while True:
 								client.sendMessage(msg.to, "Kontak tidak valid")
 						elif msg.contentType == 0:
 							if msg.toType == 2:
-								client.sendChatChecked(receiver, msg_id)
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
