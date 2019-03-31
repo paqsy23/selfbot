@@ -150,8 +150,9 @@ while True:
 								elif text.lower() == "help":
 									helpMessage = help()
 									client.sendMessage(msg.to, str(helpMessage))
-								elif text.lower() == "protectkick":
+								elif "protectkick" in msg.text.lower():
 									spl = msg.text.lower().replace('protectkick ','')
+									msgs = ""
 									if spl == 'on':
 										if msg.to in protectkick:
 											msgs = "Protect kick sudah aktif"
