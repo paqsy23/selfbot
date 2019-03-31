@@ -187,11 +187,9 @@ while True:
 									myid = client.getProfile().mid
 									nama.remove(myid)
 									client.sendMessage(msg.to, None, contentMetadata={'mid': oaMid}, contentType=13)
-									i = int(0)
-									while nama.count() >= 0:
+									for mid in nama:
 										try:
-											client.kickoutFromGroup(msg.to, [nama[i]])
-											i += 1
+											client.kickoutFromGroup(msg.to, [mid])
 										except:
 											pass
 									for mid in pending:
