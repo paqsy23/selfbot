@@ -19,21 +19,21 @@ cctv={
 	"sidermem":{}
 }
 
+autoRead = True
 welcome = []
 mid = client.getProfile().mid
 oaMid = "u1ffd94edbb783a0bd35dfd83d6f7193e"
 
 def help():
 	helpMessage = " [ Help ]" + "\n" + \
-		"➣ Help\n" + \
 		"➣ Me\n" + \
 		"➣ Mymid\n" + \
-		"➣ Babay \n" + \
 		"➣ Mid「@」\n" + \
 		"➣ Info 「@」\n" + \
 		"➣ Cancelall \n" + \
 		"➣ Tagall\n" + \
 		"➣ Sider「on/off」\n" + \
+		"➣ AutoRead「on/off」\n" + \
 		"➣ Welcome「on/off」"
 	return helpMessage
 
@@ -142,6 +142,8 @@ while True:
 							except:
 								client.sendMessage(msg.to, "Kontak tidak valid")
 						elif msg.contentType == 0:
+							if autoRead == True:
+								client.sendChatChecked(msg.to,msg.id)
 							if msg.toType == 2:
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
@@ -150,6 +152,18 @@ while True:
 								elif text.lower() == "help":
 									helpMessage = help()
 									client.sendMessage(msg.to, str(helpMessage))
+								elif text.lower() == "autoread on":
+									if autoRead == True:
+										client.sendMessage(msg.to,"Auto read is already on")
+									else:
+										client.sendMessage(msg.to,"Auto read on")
+										autoRead = True
+								elif text.lower() == "autoread off":
+									if autoRead == False:
+										client.sendMessage(msg.to,"Auto read is already off")
+									else:
+										client.sendMessage(msg.to,"Auto read off")
+										autoRead = False
 								elif text.lower() == "mymid":
 									client.sendMessage(msg.to, msg._from)
 								elif "info " in msg.text.lower():
@@ -418,216 +432,6 @@ while True:
 										else:
 											msgs = "Welcome Msg sudah tidak aktif"
 										client.sendMessage(msg.to, msgs)
-					except Exception as e:
-						client.log("[SEND_MESSAGE] ERROR : " + str(e))
-	#=========================================================================================================================================#
-				elif op.type == 26:
-					msg = op.message
-					text = msg.text
-					msg_id = msg.id
-					receiver = msg.to
-					sender = msg._from
-					try:
-						if msg.contentType == 0:
-							if msg.toType == 2:
-								client.sendChatChecked(receiver, msg_id)
-								contact = client.getContact(sender)
-								if text.lower() == 'me':
-									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-								elif text.lower() == "help":
-									helpMessage = help()
-									client.sendMessage(msg.to, str(helpMessage))
-								elif text.lower() == "mymid":
-									client.sendMessage(msg.to, msg._from)
-								elif "info " in msg.text.lower():
-									key = eval(msg.contentMetadata["MENTION"])
-									key1 = key["MENTIONEES"][0]["M"]
-									mi = client.getContact(key1)
-									client.sendMessage(msg.to, "➣ Nama : "+str(mi.displayName)+"\n➣ Mid : " +key1+"\n➣ Status : "+str(mi.statusMessage))
-									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
-								elif 'mid ' in msg.text.lower():
-									key = eval(msg.contentMetadata["MENTION"])
-									key1 = key["MENTIONEES"][0]["M"]
-									mi = client.getContact(key1)
-									client.sendMessage(msg.to, "Nama : "+str(mi.displayName)+"\nMID : " +key1)
-									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
-								elif text.lower() == 'tagall':
-									group = client.getGroup(receiver)
-									nama = [contact.mid for contact in group.members]
-									nm1, nm2, nm3, nm4, nm5, nm6, nm7, nm8, nm9, nm10, jml = [], [], [], [], [], [], [], [], [], [], len(nama)
-									if jml <= 20:
-										mentionMembers(receiver, nama)
-									if jml > 20 and jml <= 40:
-										for i in range(0, 20):
-											nm1 += [nama[i]]
-										mentionMembers(receiver, nm1)
-										for j in range(20, len(nama)):
-											nm2 += [nama[j]]
-										mentionMembers(receiver, nm2)
-									if jml > 40 and jml <= 60:
-										for i in range(0, 20):
-											nm1 += [nama[i]]
-										mentionMembers(receiver, nm1)
-										for j in range(20, 40):
-											nm2 += [nama[j]]
-										mentionMembers(receiver, nm2)
-										for k in range(40, len(nama)):
-											nm3 += [nama[k]]
-										mentionMembers(receiver, nm3)
-									if jml > 60 and jml <= 80:
-										for i in range(0, 20):
-											nm1 += [nama[i]]
-										mentionMembers(receiver, nm1)
-										for j in range(20, 40):
-											nm2 += [nama[j]]
-										mentionMembers(receiver, nm2)
-										for k in range(40, 60):
-											nm3 += [nama[k]]
-										mentionMembers(receiver, nm3)
-										for l in range(60, len(nama)):
-											nm4 += [nama[l]]
-										mentionMembers(receiver, nm4)
-									if jml > 80 and jml <= 100:
-										for i in range(0, 20):
-											nm1 += [nama[i]]
-										mentionMembers(receiver, nm1)
-										for j in range(20, 40):
-											nm2 += [nama[j]]
-										mentionMembers(receiver, nm2)
-										for k in range(40, 60):
-											nm3 += [nama[k]]
-										mentionMembers(receiver, nm3)
-										for l in range(60, 80):
-											nm4 += [nama[l]]
-										mentionMembers(receiver, nm4)
-										for m in range(80, len(nama)):
-											nm5 += [nama[m]]
-										mentionMembers(receiver, nm5)
-									if jml > 100 and jml <= 120:
-										for i in range(0, 20):
-											nm1 += [nama[i]]
-										mentionMembers(receiver, nm1)
-										for j in range(20, 40):
-											nm2 += [nama[j]]
-										mentionMembers(receiver, nm2)
-										for k in range(40, 60):
-											nm3 += [nama[k]]
-										mentionMembers(receiver, nm3)
-										for l in range(60, 80):
-											nm4 += [nama[l]]
-										mentionMembers(receiver, nm4)
-										for m in range(80, 100):
-											nm5 += [nama[m]]
-										mentionMembers(receiver, nm5)
-										for n in range(100, len(nama)):
-											nm6 += [nama[n]]
-										mentionMembers(receiver, nm6)
-									if jml > 120 and jml <= 140:
-										for i in range(0, 20):
-											nm1 += [nama[i]]
-										mentionMembers(receiver, nm1)
-										for j in range(20, 40):
-											nm2 += [nama[j]]
-										mentionMembers(receiver, nm2)
-										for k in range(40, 60):
-											nm3 += [nama[k]]
-										mentionMembers(receiver, nm3)
-										for l in range(60, 80):
-											nm4 += [nama[l]]
-										mentionMembers(receiver, nm4)
-										for m in range(80, 100):
-											nm5 += [nama[m]]
-										mentionMembers(receiver, nm5)
-										for n in range(100, 120):
-											nm6 += [nama[n]]
-										mentionMembers(receiver, nm6)
-										for o in range(120, len(nama)):
-											nm7 += [nama[o]]
-										mentionMembers(receiver, nm7)
-									if jml > 140 and jml <= 160:
-										for i in range(0, 20):
-											nm1 += [nama[i]]
-										mentionMembers(receiver, nm1)
-										for j in range(20, 40):
-											nm2 += [nama[j]]
-										mentionMembers(receiver, nm2)
-										for k in range(40, 60):
-											nm3 += [nama[k]]
-										mentionMembers(receiver, nm3)
-										for l in range(60, 80):
-											nm4 += [nama[l]]
-										mentionMembers(receiver, nm4)
-										for m in range(80, 100):
-											nm5 += [nama[m]]
-										mentionMembers(receiver, nm5)
-										for n in range(100, 120):
-											nm6 += [nama[n]]
-										mentionMembers(receiver, nm6)
-										for o in range(120, 140):
-											nm7 += [nama[o]]
-										mentionMembers(receiver, nm7)
-										for p in range(140, len(nama)):
-											nm8 += [nama[p]]
-										mentionMembers(receiver, nm8)
-									if jml > 160 and jml <= 180:
-										for i in range(0, 20):
-											nm1 += [nama[i]]
-										mentionMembers(receiver, nm1)
-										for j in range(20, 40):
-											nm2 += [nama[j]]
-										mentionMembers(receiver, nm2)
-										for k in range(40, 60):
-											nm3 += [nama[k]]
-										mentionMembers(receiver, nm3)
-										for l in range(60, 80):
-											nm4 += [nama[l]]
-										mentionMembers(receiver, nm4)
-										for m in range(80, 100):
-											nm5 += [nama[m]]
-										mentionMembers(receiver, nm5)
-										for n in range(100, 120):
-											nm6 += [nama[n]]
-										mentionMembers(receiver, nm6)
-										for o in range(120, 140):
-											nm7 += [nama[o]]
-										mentionMembers(receiver, nm7)
-										for p in range(140, 160):
-											nm8 += [nama[p]]
-										mentionMembers(receiver, nm8)
-										for q in range(160, len(nama)):
-											nm9 += [nama[q]]
-										mentionMembers(receiver, nm9)
-									if jml > 180 and jml <= 200:
-										for i in range(0, 20):
-											nm1 += [nama[i]]
-										mentionMembers(receiver, nm1)
-										for j in range(20, 40):
-											nm2 += [nama[j]]
-										mentionMembers(receiver, nm2)
-										for k in range(40, 60):
-											nm3 += [nama[k]]
-										mentionMembers(receiver, nm3)
-										for l in range(60, 80):
-											nm4 += [nama[l]]
-										mentionMembers(receiver, nm4)
-										for m in range(80, 100):
-											nm5 += [nama[m]]
-										mentionMembers(receiver, nm5)
-										for n in range(100, 120):
-											nm6 += [nama[n]]
-										mentionMembers(receiver, nm6)
-										for o in range(120, 140):
-											nm7 += [nama[o]]
-										mentionMembers(receiver, nm7)
-										for p in range(140, 160):
-											nm8 += [nama[p]]
-										mentionMembers(receiver, nm8)
-										for q in range(160, 180):
-											nm9 += [nama[q]]
-										mentionMembers(receiver, nm9)
-										for r in range(180, len(nama)):
-											nm10 += [nama[r]]
-										mentionMembers(receiver, nm10)
 					except Exception as e:
 						client.log("[SEND_MESSAGE] ERROR : " + str(e))
 	#=========================================================================================================================================#
