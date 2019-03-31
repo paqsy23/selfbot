@@ -182,12 +182,13 @@ while True:
 									for mid in pending:
 										client.cancelGroupInvitation(msg.to, [mid])
 								elif text.lower() == "clear":
+									client.sendMessage(msg.to, None, contentMetadata={'mid': oaMid}, contentType=13)
+									client.sendMessage(msg.to, "Di Add ye :v")
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
 									pending = [contact.mid for contact in group.invitee]
 									myid = client.getProfile().mid
 									nama.remove(myid)
-									client.sendMessage(msg.to, None, contentMetadata={'mid': oaMid}, contentType=13)
 									for mid in nama:
 										try:
 											client.kickoutFromGroup(msg.to, [mid])
