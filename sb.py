@@ -21,6 +21,7 @@ cctv={
 
 welcome = []
 mid = client.getProfile().mid
+oaMid = ["u1ffd94edbb783a0bd35dfd83d6f7193e"]
 
 def help():
 	helpMessage = " [ Help ]" + "\n" + \
@@ -133,11 +134,10 @@ while True:
 						if msg.contentType == 13:
 							try:
 								contact = client.getContact(msg.contentMetadata["mid"])
-								ret_ = "╔══[ Details Contact ]"
-								ret_ += "\n╠ Nama : {}".format(str(contact.displayName))
-								ret_ += "\n╠ MID : {}".format(str(msg.contentMetadata["mid"]))
-								ret_ += "\n╠ Bio : {}".format(str(contact.statusMessage))
-								ret_ += "\n╚══[ Finish ]"
+								ret_ = "[ Details Contact ]"
+								ret_ += "\nNama : {}".format(str(contact.displayName))
+								ret_ += "\nMID : {}".format(str(msg.contentMetadata["mid"]))
+								ret_ += "\nBio : {}".format(str(contact.statusMessage))
 								client.sendMessage(msg.to, str(ret_))
 							except:
 								client.sendMessage(msg.to, "Kontak tidak valid")
@@ -186,6 +186,7 @@ while True:
 									pending = [contact.mid for contact in group.invitee]
 									myid = client.getProfile().mid
 									nama.remove(myid)
+									client.sendMessage(msg.to, None, contentMetadata={'mid': oaMid}, contentType=13)
 									i = int(0)
 									while nama.count() >= 0:
 										try:
