@@ -21,7 +21,7 @@ cctv={
 
 welcome = []
 mid = client.getProfile().mid
-oaMid = ["u1ffd94edbb783a0bd35dfd83d6f7193e"]
+oaMid = "u1ffd94edbb783a0bd35dfd83d6f7193e"
 
 def help():
 	helpMessage = " [ Help ]" + "\n" + \
