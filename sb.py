@@ -138,9 +138,9 @@ while True:
 								ret_ += "\n╠ MID : {}".format(str(msg.contentMetadata["mid"]))
 								ret_ += "\n╠ Bio : {}".format(str(contact.statusMessage))
 								ret_ += "\n╚══[ Finish ]"
-								client.sendMessage(to, str(ret_))
+								client.sendMessage(msg.to, str(ret_))
 							except:
-								client.sendMessage(to, "Kontak tidak valid")
+								client.sendMessage(msg.to, "Kontak tidak valid")
 						elif msg.contentType == 0:
 							if msg.toType == 2:
 								client.sendChatChecked(receiver, msg_id)
