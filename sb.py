@@ -12,12 +12,6 @@ client.log("Auth Token : " + str(client.authToken))
 channel = LineChannel(client)
 client.log("Channel Access Token : " + str(channel.channelAccessToken))
 
-paq = LineClient(id='paqsy23@gmail.com', passwd='rengginang23')
-#paq = LineClient()
-paq.log("Auth Token : " + str(paq.authToken))
-channel1 = LineChannel(paq)
-paq.log("Channel Access Token : " + str(channel1.channelAccessToken))
-
 poll = LinePoll(client)
 cctv={
 	"cyduk":{},
@@ -25,11 +19,8 @@ cctv={
 	"sidermem":{}
 }
 
-limit = 1
 welcome = []
 mid = client.getProfile().mid
-Amid = paq.getProfile().mid
-Bots = [mid, Amid]
 
 def help():
 	helpMessage = " [ Help ]" + "\n" + \
@@ -61,9 +52,9 @@ def leaveMembers(to, mid):
 			arrData = {'S':slen, 'E':elen, 'M':i}
 			arr.append(arrData)
 			textx += mention + "baper :("
-		paq.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
-		paq.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 	
 def welcomeMembers(to, mid):
 	try:
@@ -78,9 +69,9 @@ def welcomeMembers(to, mid):
 			arrData = {'S':slen, 'E':elen, 'M':i}
 			arr.append(arrData)
 			textx += mention+"Selamat datang di group "+str(ginfo.name)+"\nJangan lupa follow ig @paqsy23 yaa\nAuto follback kok"
-		paq.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
-		paq.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
 def mentionMembers(to, mid):
 	try:
@@ -101,9 +92,9 @@ def mentionMembers(to, mid):
 				textx += "❂➣ "
 			else:
 				pass
-		paq.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
-		paq.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 	
 def siderMembers(to, mid):
 	try:
@@ -117,9 +108,9 @@ def siderMembers(to, mid):
 			arrData = {'S':slen, 'E':elen, 'M':i}
 			arr.append(arrData)
 			textx += mention + "Ikut nimbrung gih"
-		paq.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+		client.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 	except Exception as error:
-		paq.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+		client.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
 while True:
 	try:
@@ -139,58 +130,41 @@ while True:
 					receiver = msg.to
 					sender = msg._from
 					try:
-						if msg.contentType == 0:
+						if msg.contentType == 13:
+						if settings["checkContact"] == True:
+							try:
+								contact = client.getContact(msg.contentMetadata["mid"])
+								ret_ = "╔══[ Details Contact ]"
+								ret_ += "\n╠ Nama : {}".format(str(contact.displayName))
+								ret_ += "\n╠ MID : {}".format(str(msg.contentMetadata["mid"]))
+								ret_ += "\n╠ Bio : {}".format(str(contact.statusMessage))
+								ret_ += "\n╚══[ Finish ]"
+								client.sendMessage(to, str(ret_))
+							except:
+								client.sendMessage(to, "Kontak tidak valid")
+						elif msg.contentType == 0:
 							if msg.toType == 2:
 								client.sendChatChecked(receiver, msg_id)
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
-									paq.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-								elif text.lower() == 'join':
-									group = client.getGroup(receiver)
-									nama = [contact.mid for contact in group.members]
-									if Amid not in nama:
-										client.inviteIntoGroup(msg.to,[Amid])
-										paq.acceptGroupInvitation(msg.to)
-										paq.sendMessage(msg.to,"Bot already on!")
-									else:
-										paq.sendMessage(msg.to,"Bot lu disini goblog!")
-								elif text.lower() == 'babay':
-									group = paq.getGroup(receiver)
-									paq.sendMessage(msg.to, "Bye, grup " + str(group.name))
-									paq.leaveGroup(msg.to)
-								elif text.lower() == "respon":
-									paq.sendMessage(msg.to,"Hadir!")
+									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
 								elif text.lower() == "help":
 									helpMessage = help()
-									paq.sendMessage(msg.to, str(helpMessage))
+									client.sendMessage(msg.to, str(helpMessage))
 								elif text.lower() == "mymid":
-									paq.sendMessage(msg.to, msg._from)
+									client.sendMessage(msg.to, msg._from)
 								elif "info " in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
 									mi = client.getContact(key1)
-									paq.sendMessage(msg.to, "➣ Nama : "+str(mi.displayName)+"\n➣ Mid : " +key1+"\n➣ Status : "+str(mi.statusMessage))
-									paq.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
+									client.sendMessage(msg.to, "➣ Nama : "+str(mi.displayName)+"\n➣ Mid : " +key1+"\n➣ Status : "+str(mi.statusMessage))
+									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
 								elif 'mid ' in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
 									mi = client.getContact(key1)
-									paq.sendMessage(msg.to, "Nama : "+str(mi.displayName)+"\nMID : " +key1)
-									paq.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
-								elif text.lower() == 'spam':
-									korban = msg.text.lower().replace('spam: ','')
-									jumlah = int(korban)
-									if jumlah <= 1000:
-										for var in range(0,jumlah):
-											paq.sendMessage(msg.to, "BACOD")
-								elif 'spampc: ' in msg.text.lower():
-									korban = msg.text.lower().replace('spam: ','')
-									korban2 = korban.split(' ')
-									midd = korban2[0]
-									jumlah = int(korban2[1])
-									if jumlah <= 1000:
-										for var in range(0,jumlah):
-											client.sendMessage(midd, "spam")
+									client.sendMessage(msg.to, "Nama : "+str(mi.displayName)+"\nMID : " +key1)
+									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
 								elif "kick " in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key["MENTIONEES"][0]["M"]
@@ -199,30 +173,27 @@ while True:
 										targets.append(x["M"])
 										for target in targets:
 											try:
-												paq.kickoutFromGroup(msg.to, [target])
+												client.kickoutFromGroup(msg.to, [target])
 											except:
 												pass
 								elif text.lower() == "cancelall":
 									group = client.getGroup(receiver)
 									pending = [contact.mid for contact in group.invitee]
 									for mid in pending:
-										paq.cancelGroupInvitation(msg.to, [mid])
+										client.cancelGroupInvitation(msg.to, [mid])
 								elif text.lower() == "clear":
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
 									pending = [contact.mid for contact in group.invitee]
-									botid = paq.getProfile().mid
 									myid = client.getProfile().mid
 									nama.remove(myid)
 									i = int(0)
 									while nama.count() >= 0:
 										try:
-											paq.kickoutFromGroup(msg.to, [nama[i]])
+											client.kickoutFromGroup(msg.to, [nama[i]])
 											i += 1
 										except:
-											client.inviteIntoGroup(msg.to,[Amid])
-											paq.acceptGroupInvitation(msg.to)
-											i = 0
+											pass
 									for mid in pending:
 										client.cancelGroupInvitation(msg.to, [mid])
 								elif text.lower() == 'speed':
@@ -463,40 +434,25 @@ while True:
 							if msg.toType == 2:
 								client.sendChatChecked(receiver, msg_id)
 								contact = client.getContact(sender)
-								
 								if text.lower() == 'me':
-									paq.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-								elif ' bot ' in text.lower() or ' bot' in text.lower():
-									paq.sendMessage(msg.to, "Apaan njir!")
-								elif text.lower() == 'babay':
-									group = paq.getGroup(receiver)
-									paq.sendMessage(msg.to, "Bye, grup " + str(group.name))
-									paq.leaveGroup(msg.to)
-								elif text.lower() == "respon":
-									paq.sendMessage(msg.to,"Hadir!")
+									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
 								elif text.lower() == "help":
 									helpMessage = help()
-									paq.sendMessage(msg.to, str(helpMessage))
+									client.sendMessage(msg.to, str(helpMessage))
 								elif text.lower() == "mymid":
-									paq.sendMessage(msg.to, msg._from)
+									client.sendMessage(msg.to, msg._from)
 								elif "info " in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
 									mi = client.getContact(key1)
-									paq.sendMessage(msg.to, "➣ Nama : "+str(mi.displayName)+"\n➣ Mid : " +key1+"\n➣ Status : "+str(mi.statusMessage))
-									paq.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
+									client.sendMessage(msg.to, "➣ Nama : "+str(mi.displayName)+"\n➣ Mid : " +key1+"\n➣ Status : "+str(mi.statusMessage))
+									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
 								elif 'mid ' in msg.text.lower():
 									key = eval(msg.contentMetadata["MENTION"])
 									key1 = key["MENTIONEES"][0]["M"]
 									mi = client.getContact(key1)
-									paq.sendMessage(msg.to, "Nama : "+str(mi.displayName)+"\nMID : " +key1)
-									paq.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
-								elif text.lower() == 'spam':
-									korban = msg.text.lower().replace('spam: ','')
-									jumlah = int(korban)
-									if jumlah <= 1000:
-										for var in range(0,jumlah):
-											paq.sendMessage(msg.to, "BACOD")
+									client.sendMessage(msg.to, "Nama : "+str(mi.displayName)+"\nMID : " +key1)
+									client.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
 								elif text.lower() == 'tagall':
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
