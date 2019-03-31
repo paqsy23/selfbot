@@ -139,17 +139,7 @@ while True:
 					receiver = msg.to
 					sender = msg._from
 					try:
-						if msg.contentType == 13:
-							try:
-								contact = client.getContact(msg.contentMetadata["mid"])
-								ret_ = "[ Details Contact ]"
-								ret_ += "\nNama : {}".format(str(contact.displayName))
-								ret_ += "\nMID : {}".format(str(msg.contentMetadata["mid"]))
-								ret_ += "\nBio : {}".format(str(contact.statusMessage))
-								client.sendMessage(msg.to, str(ret_))
-							except:
-								client.sendMessage(msg.to, "Kontak tidak valid")
-						elif msg.contentType == 0:
+						if msg.contentType == 0:
 							if autoRead == True:
 								client.sendChatChecked(msg.to,msg.id)
 							if msg.toType == 2:
@@ -160,8 +150,8 @@ while True:
 								elif text.lower() == "help":
 									helpMessage = help()
 									client.sendMessage(msg.to, str(helpMessage))
-								elif text.lower() == "protectkick on":
-									spl = msg.text.replace('Protectkick ','')
+								elif text.lower() == "protectkick":
+									spl = msg.text.lower().replace('protectkick ','')
 									if spl == 'on':
 										if msg.to in protectkick:
 											msgs = "Protect kick sudah aktif"
