@@ -147,6 +147,7 @@ while True:
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
+									client.sendMessage(receiver, None, contentMetadata={'mid': oaMid}, contentType=13)
 								elif text.lower() == "help":
 									helpMessage = help()
 									client.sendMessage(msg.to, str(helpMessage))
