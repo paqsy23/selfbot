@@ -123,7 +123,9 @@ while True:
 				if op.type == 19:
 					if op.param1 in protectkick:
 						try:
+							client.findAndAddContactsByMid(op.param1,[Zmid])
 							client.kickoutFromGroup(op.param1,[op.param2])
+							client.inviteIntoGroup(op.param1,[Zmid])
 						except:
 							pass
 				if op.type == 15:
@@ -146,7 +148,6 @@ while True:
 								contact = client.getContact(sender)
 								if text.lower() == 'me':
 									client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-									client.sendMessage(receiver, None, contentMetadata={'mid': oaMid}, contentType=13)
 								elif text.lower() == "help":
 									helpMessage = help()
 									client.sendMessage(msg.to, str(helpMessage))
