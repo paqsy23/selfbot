@@ -19,7 +19,8 @@ cctv={
 	"sidermem":{}
 }
 
-autoRead = True
+autoRead = False
+protectkick = []
 welcome = []
 mid = client.getProfile().mid
 oaMid = "u1ffd94edbb783a0bd35dfd83d6f7193e"
@@ -33,6 +34,7 @@ def help():
 		"➣ Cancelall \n" + \
 		"➣ Tagall\n" + \
 		"➣ Sider「on/off」\n" + \
+		"➣ ProtectKick「on/off」\n" + \
 		"➣ AutoRead「on/off」\n" + \
 		"➣ Welcome「on/off」"
 	return helpMessage
@@ -118,6 +120,12 @@ while True:
 		ops=poll.singleTrace(count=50)
 		if ops != None:
 			for op in ops:
+				if op.type == 19:
+					if op.param1 in protectkick:
+						try:
+							client.kickoutFromGroup(op.param1,[op.param2])
+						except:
+							pass
 				if op.type == 15:
 					if op.param1 in welcome:
 						leaveMembers(op.param1, [op.param2])
@@ -152,6 +160,24 @@ while True:
 								elif text.lower() == "help":
 									helpMessage = help()
 									client.sendMessage(msg.to, str(helpMessage))
+								elif text.lower() == "protectkick on":
+									spl = msg.text.replace('Protectkick ','')
+									if spl == 'on':
+										if msg.to in protectkick:
+											msgs = "Protect kick sudah aktif"
+										else:
+											protectkick.append(msg.to)
+											ginfo = client.getGroup(msg.to)
+											msgs = "Protect kick diaktifkan\nDi Group : " +str(ginfo.name)
+										client.sendMessage(msg.to, "「Diaktifkan」\n" + msgs)
+									elif spl == 'off':
+										if msg.to in protectkick:
+											protectkick.remove(msg.to)
+											ginfo = client.getGroup(msg.to)
+											msgs = "Protect kick dinonaktifkan\nDi Group : " +str(ginfo.name)
+										else:
+											msgs = "Protect kick sudah tidak aktif"
+										client.sendMessage(msg.to, "「Dinonaktifkan」\n" + msgs)
 								elif text.lower() == "autoread on":
 									if autoRead == True:
 										client.sendMessage(msg.to,"Auto read is already on")
