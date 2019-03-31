@@ -187,15 +187,14 @@ while True:
 									group = client.getGroup(receiver)
 									nama = [contact.mid for contact in group.members]
 									pending = [contact.mid for contact in group.invitee]
-									myid = client.getProfile().mid
-									nama.remove(myid)
-									for mid in nama:
+									nama.remove(mid)
+									for i in nama:
 										try:
-											client.kickoutFromGroup(msg.to, [mid])
+											client.kickoutFromGroup(msg.to, [i])
 										except:
 											pass
-									for mid in pending:
-										client.cancelGroupInvitation(msg.to, [mid])
+									for i in pending:
+										client.cancelGroupInvitation(msg.to, [i])
 								elif text.lower() == 'speed':
 									start = time.time()
 									client.sendText(receiver, "TestSpeed")
