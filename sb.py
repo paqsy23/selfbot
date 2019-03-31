@@ -131,7 +131,6 @@ while True:
 					sender = msg._from
 					try:
 						if msg.contentType == 13:
-						if settings["checkContact"] == True:
 							try:
 								contact = client.getContact(msg.contentMetadata["mid"])
 								ret_ = "╔══[ Details Contact ]"
